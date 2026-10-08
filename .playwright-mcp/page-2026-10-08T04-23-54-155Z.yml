@@ -1,0 +1,439 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link [ref=f1e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f1e8]:
+        - link "Find Jobs" [ref=f1e9] [cursor=pointer]:
+          - /url: "#jobs"
+        - link "Industries" [ref=f1e10] [cursor=pointer]:
+          - /url: "#industries"
+        - link "For Employers" [ref=f1e11] [cursor=pointer]:
+          - /url: "#employers"
+        - link "Insights" [ref=f1e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "About" [ref=f1e13] [cursor=pointer]:
+          - /url: "#about"
+      - generic [ref=f1e14]:
+        - button "Sign In" [ref=f1e15] [cursor=pointer]
+        - button "Get Started" [ref=f1e16] [cursor=pointer]
+  - generic [ref=f1e19]:
+    - generic [ref=f1e20]:
+      - generic [ref=f1e21]: Now featuring AI-powered matching
+      - heading "Bridge the Gap Between Talent & Opportunity" [level=1] [ref=f1e23]
+      - paragraph [ref=f1e24]: TaIQ connects skilled professionals with leading employers across every industry. Your next great career move is one click away.
+      - generic [ref=f1e25]:
+        - button "Browse Jobs" [ref=f1e26] [cursor=pointer]
+        - button "Post a Job" [ref=f1e30] [cursor=pointer]
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]:
+          - generic [ref=f1e33]: 24K+
+          - generic [ref=f1e34]: Active Jobs
+        - generic [ref=f1e35]:
+          - generic [ref=f1e36]: 3.8K+
+          - generic [ref=f1e37]: Companies
+        - generic [ref=f1e38]:
+          - generic [ref=f1e39]: 180K+
+          - generic [ref=f1e40]: Placed This Year
+    - generic [ref=f1e41]:
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43] [cursor=pointer]: Find a Job
+        - generic [ref=f1e44] [cursor=pointer]: Hire Talent
+      - generic [ref=f1e45]:
+        - textbox "Job title, skill, or keyword" [ref=f1e50]
+        - textbox "City, state, or remote" [ref=f1e55]
+        - combobox [ref=f1e60]:
+          - option "All Job Types" [selected]
+          - option "Full-Time"
+          - option "Part-Time"
+          - option "Contract"
+          - option "Temporary"
+          - option "Internship"
+        - button "Search Jobs" [ref=f1e61] [cursor=pointer]
+      - generic [ref=f1e65]:
+        - paragraph [ref=f1e66]: "Popular searches:"
+        - generic [ref=f1e67]:
+          - generic [ref=f1e68] [cursor=pointer]: Software Engineer
+          - generic [ref=f1e69] [cursor=pointer]: Data Analyst
+          - generic [ref=f1e70] [cursor=pointer]: Product Manager
+          - generic [ref=f1e71] [cursor=pointer]: Nurse
+          - generic [ref=f1e72] [cursor=pointer]: Remote
+  - generic [ref=f1e74]:
+    - generic [ref=f1e75]: "Trusted by leading companies:"
+    - generic [ref=f1e76]:
+      - generic [ref=f1e77]: Microsoft
+      - generic [ref=f1e78]: Johnson & Johnson
+      - generic [ref=f1e79]: Goldman Sachs
+      - generic [ref=f1e80]: Amazon
+      - generic [ref=f1e81]: Pfizer
+      - generic [ref=f1e82]: General Motors
+  - generic [ref=f1e85]:
+    - generic [ref=f1e86]:
+      - generic [ref=f1e87]: 24,000+
+      - generic [ref=f1e88]: Open Positions
+    - generic [ref=f1e89]:
+      - generic [ref=f1e90]: 3,800+
+      - generic [ref=f1e91]: Partner Companies
+    - generic [ref=f1e92]:
+      - generic [ref=f1e93]: 98%
+      - generic [ref=f1e94]: Satisfaction Rate
+    - generic [ref=f1e95]:
+      - generic [ref=f1e96]: 180,000+
+      - generic [ref=f1e97]: Successful Placements
+  - generic [ref=f1e99]:
+    - generic [ref=f1e100]:
+      - generic [ref=f1e101]: Browse by Industry
+      - heading "Find Opportunities in Your Field" [level=2] [ref=f1e102]
+      - paragraph [ref=f1e103]: Explore thousands of openings across every sector of the economy
+    - generic [ref=f1e104]:
+      - generic [ref=f1e105] [cursor=pointer]:
+        - generic [ref=f1e106]: 💻
+        - generic [ref=f1e107]: Technology
+        - generic [ref=f1e108]: 6.8K jobs
+      - generic [ref=f1e109] [cursor=pointer]:
+        - generic [ref=f1e110]: 🏥
+        - generic [ref=f1e111]: Healthcare
+        - generic [ref=f1e112]: 4.3K jobs
+      - generic [ref=f1e113] [cursor=pointer]:
+        - generic [ref=f1e114]: 💰
+        - generic [ref=f1e115]: Finance
+        - generic [ref=f1e116]: 3.1K jobs
+      - generic [ref=f1e117] [cursor=pointer]:
+        - generic [ref=f1e118]: ⚙️
+        - generic [ref=f1e119]: Engineering
+        - generic [ref=f1e120]: 2.8K jobs
+      - generic [ref=f1e121] [cursor=pointer]:
+        - generic [ref=f1e122]: 📣
+        - generic [ref=f1e123]: Marketing
+        - generic [ref=f1e124]: 1.9K jobs
+      - generic [ref=f1e125] [cursor=pointer]:
+        - generic [ref=f1e126]: 🎓
+        - generic [ref=f1e127]: Education
+        - generic [ref=f1e128]: 1.5K jobs
+      - generic [ref=f1e129] [cursor=pointer]:
+        - generic [ref=f1e130]: 🏭
+        - generic [ref=f1e131]: Manufacturing
+        - generic [ref=f1e132]: 2.2K jobs
+      - generic [ref=f1e133] [cursor=pointer]:
+        - generic [ref=f1e134]: 🛍️
+        - generic [ref=f1e135]: Retail
+        - generic [ref=f1e136]: 1.7K jobs
+      - generic [ref=f1e137] [cursor=pointer]:
+        - generic [ref=f1e138]: 🚚
+        - generic [ref=f1e139]: Logistics
+        - generic [ref=f1e140]: 1.3K jobs
+      - generic [ref=f1e141] [cursor=pointer]:
+        - generic [ref=f1e142]: ⚖️
+        - generic [ref=f1e143]: Legal
+        - generic [ref=f1e144]: 980 jobs
+  - generic [ref=f1e146]:
+    - generic [ref=f1e147]:
+      - generic [ref=f1e148]: Featured Opportunities
+      - heading "Jobs Handpicked For You" [level=2] [ref=f1e149]
+      - paragraph [ref=f1e150]: Thousands of new roles added daily from top employers nationwide
+    - generic [ref=f1e151]:
+      - button "All" [ref=f1e152] [cursor=pointer]
+      - button "Full-Time" [ref=f1e153] [cursor=pointer]
+      - button "Part-Time" [ref=f1e154] [cursor=pointer]
+      - button "Contract" [ref=f1e155] [cursor=pointer]
+      - button "Remote" [ref=f1e156] [cursor=pointer]
+    - generic [ref=f1e188]:
+      - link "View All Jobs →" [ref=f1e189] [cursor=pointer]:
+        - /url: javascript:void(0)
+      - paragraph
+  - generic [ref=f1e192]:
+    - generic [ref=f1e193]:
+      - generic [ref=f1e194]: How It Works
+      - heading "Land Your Dream Job in 4 Simple Steps" [level=2] [ref=f1e195]
+      - generic [ref=f1e196]:
+        - generic [ref=f1e197]:
+          - generic [ref=f1e198]: "1"
+          - generic [ref=f1e199]:
+            - heading "Create Your Profile" [level=3] [ref=f1e200]
+            - paragraph [ref=f1e201]: Build a compelling profile that showcases your skills, experience, and career goals to thousands of employers.
+        - generic [ref=f1e202]:
+          - generic [ref=f1e203]: "2"
+          - generic [ref=f1e204]:
+            - heading "AI-Powered Matching" [level=3] [ref=f1e205]
+            - paragraph [ref=f1e206]: Our intelligent algorithm analyzes your profile and surfaces the most relevant roles based on your skills and preferences.
+        - generic [ref=f1e207]:
+          - generic [ref=f1e208]: "3"
+          - generic [ref=f1e209]:
+            - heading "Apply With One Click" [level=3] [ref=f1e210]
+            - paragraph [ref=f1e211]: Apply to multiple positions instantly. Track every application's status in real-time from your dashboard.
+        - generic [ref=f1e212]:
+          - generic [ref=f1e213]: "4"
+          - generic [ref=f1e214]:
+            - heading "Get Hired & Thrive" [level=3] [ref=f1e215]
+            - paragraph [ref=f1e216]: Our dedicated success team supports you through offer negotiations and your first 90 days on the job.
+    - generic [ref=f1e217]:
+      - generic [ref=f1e218]:
+        - heading "🎯 Match Found!" [level=4] [ref=f1e219]
+        - paragraph [ref=f1e220]: Senior Software Engineer at Acme Corp
+        - generic [ref=f1e221]:
+          - generic [ref=f1e222]: 👤
+          - generic [ref=f1e223]:
+            - generic [ref=f1e224]: 97%
+            - generic [ref=f1e225]: Skills Match
+          - generic [ref=f1e226]:
+            - generic [ref=f1e227]: ● Applied
+            - generic [ref=f1e228]: 2 min ago
+      - generic [ref=f1e229]:
+        - heading "📅 Interview Scheduled" [level=4] [ref=f1e230]
+        - paragraph [ref=f1e231]: Wednesday, April 9 at 2:00 PM EST
+        - generic [ref=f1e232]:
+          - generic [ref=f1e233]: Confirmed
+          - generic [ref=f1e234]: Google Meet
+      - generic [ref=f1e235]:
+        - heading "🎉 Offer Received!" [level=4] [ref=f1e236]
+        - paragraph [ref=f1e237]: $145,000 / year + equity
+        - generic [ref=f1e238]: Review Offer
+  - generic [ref=f1e241]:
+    - generic [ref=f1e242]:
+      - generic [ref=f1e243]: Success Stories
+      - heading "What Our Community Says" [level=2] [ref=f1e244]
+      - paragraph [ref=f1e245]: Thousands of professionals and employers trust TaIQ every day
+    - generic [ref=f1e246]:
+      - generic [ref=f1e247]:
+        - generic [ref=f1e248]: ★★★★★
+        - paragraph [ref=f1e249]: "\"TaIQ connected me with my dream job in just 2 weeks. The platform is intuitive and the team is incredibly supportive throughout the process.\""
+        - generic [ref=f1e250]:
+          - generic [ref=f1e251]: S
+          - generic [ref=f1e252]:
+            - generic [ref=f1e253]: Sarah Johnson
+            - generic [ref=f1e254]: Software Engineer at Google
+      - generic [ref=f1e255]:
+        - generic [ref=f1e256]: ★★★★★
+        - paragraph [ref=f1e257]: "\"We have been using TaIQ to source top-tier candidates and the quality of applicants is consistently excellent.\""
+        - generic [ref=f1e258]:
+          - generic [ref=f1e259]: M
+          - generic [ref=f1e260]:
+            - generic [ref=f1e261]: Michael Chen
+            - generic [ref=f1e262]: HR Director at Pfizer
+      - generic [ref=f1e263]:
+        - generic [ref=f1e264]: ★★★★★
+        - paragraph [ref=f1e265]: "\"After months of searching on other platforms, TaIQ matched me with the perfect role that aligned with both my skills and career goals.\""
+        - generic [ref=f1e266]:
+          - generic [ref=f1e267]: P
+          - generic [ref=f1e268]:
+            - generic [ref=f1e269]: Priya Patel
+            - generic [ref=f1e270]: Data Scientist at Goldman Sachs
+      - generic [ref=f1e271]:
+        - generic [ref=f1e272]: ★★★★☆
+        - paragraph [ref=f1e273]: "\"The talent pool on TaIQ is exceptional. We filled 12 positions in a single quarter, saving significant time and recruiting costs.\""
+        - generic [ref=f1e274]:
+          - generic [ref=f1e275]: J
+          - generic [ref=f1e276]:
+            - generic [ref=f1e277]: James Williams
+            - generic [ref=f1e278]: Operations Manager at Amazon
+      - generic [ref=f1e279]:
+        - generic [ref=f1e280]: ★★★★★
+        - paragraph [ref=f1e281]: "\"Simple, clean, and effective. I uploaded my resume, filled in my preferences, and had 5 interview invitations within a week.\""
+        - generic [ref=f1e282]:
+          - generic [ref=f1e283]: E
+          - generic [ref=f1e284]:
+            - generic [ref=f1e285]: Emma Rodriguez
+            - generic [ref=f1e286]: UX Designer at Apple
+      - generic [ref=f1e287]:
+        - generic [ref=f1e288]: ★★★★★
+        - paragraph [ref=f1e289]: "\"TaIQ has become our primary recruiting channel. The quality of candidates and the platform support are unmatched.\""
+        - generic [ref=f1e290]:
+          - generic [ref=f1e291]: D
+          - generic [ref=f1e292]:
+            - generic [ref=f1e293]: David Kim
+            - generic [ref=f1e294]: CFO at Tesla
+  - generic [ref=f1e297]:
+    - generic [ref=f1e298]:
+      - generic [ref=f1e299]:
+        - generic [ref=f1e300]: 🧠
+        - heading "AI-Powered Matching" [level=3] [ref=f1e301]
+        - paragraph [ref=f1e302]: Proprietary algorithms surface the best candidates for every role, reducing time-to-hire by 60%.
+      - generic [ref=f1e303]:
+        - generic [ref=f1e304]: 🌐
+        - heading "National Reach" [level=3] [ref=f1e305]
+        - paragraph [ref=f1e306]: Access talent across all 50 states and remote candidates worldwide through our platform.
+      - generic [ref=f1e307]:
+        - generic [ref=f1e308]: ✅
+        - heading "Pre-Screened Candidates" [level=3] [ref=f1e309]
+        - paragraph [ref=f1e310]: Every applicant is vetted for skills and experience before reaching your inbox.
+      - generic [ref=f1e311]:
+        - generic [ref=f1e312]: 📊
+        - heading "Analytics Dashboard" [level=3] [ref=f1e313]
+        - paragraph [ref=f1e314]: Real-time data on applications, pipeline velocity, offer acceptance, and DEI metrics.
+    - generic [ref=f1e315]:
+      - generic [ref=f1e316]: Why TaIQ
+      - heading "The Smarter Way to Hire & Get Hired" [level=2] [ref=f1e317]
+      - paragraph [ref=f1e318]: Whether you're a job seeker looking for your next move or an employer building a world-class team, TaIQ gives you the tools, network, and expert guidance to succeed.
+      - generic [ref=f1e319]:
+        - generic [ref=f1e320]:
+          - generic [ref=f1e321]: ✓
+          - text: Access to 180,000+ pre-screened candidates
+        - generic [ref=f1e322]:
+          - generic [ref=f1e323]: ✓
+          - text: Average time-to-hire under 14 days
+        - generic [ref=f1e324]:
+          - generic [ref=f1e325]: ✓
+          - text: Dedicated account manager support
+        - generic [ref=f1e326]:
+          - generic [ref=f1e327]: ✓
+          - text: 90-day placement guarantee
+        - generic [ref=f1e328]:
+          - generic [ref=f1e329]: ✓
+          - text: ATS integrations with major HR systems
+      - button "Start Hiring Today" [ref=f1e330] [cursor=pointer]
+  - generic [ref=f1e332]:
+    - generic [ref=f1e333]: Ready to Get Started?
+    - heading "Your Next Opportunity Is Waiting" [level=2] [ref=f1e334]
+    - paragraph [ref=f1e335]: Join over 2 million professionals who found their perfect role through TaIQ.
+    - generic [ref=f1e336]:
+      - button "Create Free Account" [ref=f1e337] [cursor=pointer]
+      - button "Post a Job — Free Trial" [ref=f1e338] [cursor=pointer]
+  - generic [ref=f1e340]:
+    - generic [ref=f1e341]:
+      - generic [ref=f1e342]: Career Insights
+      - heading "Resources to Elevate Your Career" [level=2] [ref=f1e343]
+      - paragraph [ref=f1e344]: Expert advice, industry trends, and hiring guides from our team of career specialists
+    - generic [ref=f1e345]: Loading articles…
+    - link "View All Insights →" [ref=f1e348] [cursor=pointer]:
+      - /url: blog.html
+  - contentinfo [ref=f1e349]:
+    - generic [ref=f1e350]:
+      - generic [ref=f1e351]:
+        - generic [ref=f1e352]:
+          - heading "TaIQ" [level=3] [ref=f1e353]
+          - paragraph [ref=f1e354]: Connecting exceptional talent with extraordinary opportunities across every industry since 2018.
+          - generic [ref=f1e355]:
+            - generic [ref=f1e356] [cursor=pointer]: in
+            - generic [ref=f1e357] [cursor=pointer]: 𝕏
+            - generic [ref=f1e358] [cursor=pointer]: f
+            - generic [ref=f1e359] [cursor=pointer]: ig
+        - generic [ref=f1e360]:
+          - heading "Job Seekers" [level=4] [ref=f1e361]
+          - list [ref=f1e362]:
+            - listitem [ref=f1e363]:
+              - link "Browse Jobs" [ref=f1e364] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e365]:
+              - link "Career Resources" [ref=f1e366] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e367]:
+              - link "Resume Builder" [ref=f1e368] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e369]:
+              - link "Salary Explorer" [ref=f1e370] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e371]:
+              - link "Interview Prep" [ref=f1e372] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f1e373]:
+          - heading "Employers" [level=4] [ref=f1e374]
+          - list [ref=f1e375]:
+            - listitem [ref=f1e376]:
+              - link "Post a Job" [ref=f1e377] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e378]:
+              - link "Search Candidates" [ref=f1e379] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e380]:
+              - link "Pricing" [ref=f1e381] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e382]:
+              - link "ATS Integrations" [ref=f1e383] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e384]:
+              - link "Employer Branding" [ref=f1e385] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f1e386]:
+          - heading "Company" [level=4] [ref=f1e387]
+          - list [ref=f1e388]:
+            - listitem [ref=f1e389]:
+              - link "About Us" [ref=f1e390] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e391]:
+              - link "Careers" [ref=f1e392] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e393]:
+              - link "Press" [ref=f1e394] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e395]:
+              - link "Contact" [ref=f1e396] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e397]:
+              - link "Blog" [ref=f1e398] [cursor=pointer]:
+                - /url: blog.html
+      - generic [ref=f1e399]:
+        - generic [ref=f1e400]: © 2025 TaIQ Inc. All rights reserved.
+        - generic [ref=f1e401]:
+          - link "Privacy Policy" [ref=f1e402] [cursor=pointer]:
+            - /url: privacy-policy.html
+          - link "Terms of Service" [ref=f1e403] [cursor=pointer]:
+            - /url: terms-of-service.html
+          - link "Cookie Policy" [ref=f1e404] [cursor=pointer]:
+            - /url: cookie-policy.html
+          - link "Accessibility" [ref=f1e405] [cursor=pointer]:
+            - /url: accessibility.html
+  - dialog "Welcome Back":
+    - generic:
+      - generic:
+        - heading "Welcome Back" [level=2]
+        - button "Close": ×
+      - generic:
+        - tab "Sign In"
+        - tab "Create Account"
+      - generic:
+        - generic:
+          - generic: Email Address
+          - textbox "Email Address":
+            - /placeholder: you@example.com
+        - generic:
+          - generic: Password
+          - textbox "Password":
+            - /placeholder: ••••••••
+        - button "Sign In"
+        - generic:
+          - text: Don't have an account?
+          - link "Sign up free":
+            - /url: "#"
+  - generic [ref=f1e406]:
+    - generic [ref=f1e407]: ✅
+    - generic [ref=f1e408]: Done!
+  - dialog
+  - dialog:
+    - generic:
+      - generic:
+        - generic: Apply for this Position
+        - generic: ×
+      - generic:
+        - generic:
+          - generic: Full Name *
+          - textbox "Your full name"
+        - generic:
+          - generic: Email Address *
+          - textbox "you@example.com"
+        - generic:
+          - generic: Phone Number
+          - textbox "(555) 123-4567"
+        - generic:
+          - generic: LinkedIn Profile
+          - textbox "https://linkedin.com/in/yourprofile"
+        - generic: Resume / CV *
+        - generic:
+          - generic: Cover Letter
+          - textbox "Tell the hiring team why you're a great fit for this role..."
+        - generic:
+          - generic: How did you hear about this position?
+          - combobox:
+            - option "Select one" [selected]
+            - option "TaIQ Platform"
+            - option "LinkedIn"
+            - option "Employee Referral"
+            - option "Job Board"
+            - option "Friend / Family"
+            - option "Recruiter"
+            - option "Other"
+          - generic:
+            - textbox "Referrer's email address"
+        - generic:
+          - checkbox "I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes."
+          - generic: I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes.
+        - button "Submit Application"

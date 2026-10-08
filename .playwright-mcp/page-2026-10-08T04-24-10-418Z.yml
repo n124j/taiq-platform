@@ -1,0 +1,667 @@
+- generic [active] [ref=f1e1]:
+  - navigation [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link [ref=f1e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f1e8]:
+        - link "Find Jobs" [ref=f1e9] [cursor=pointer]:
+          - /url: "#jobs"
+        - link "Industries" [ref=f1e10] [cursor=pointer]:
+          - /url: "#industries"
+        - link "For Employers" [ref=f1e11] [cursor=pointer]:
+          - /url: "#employers"
+        - link "Insights" [ref=f1e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "About" [ref=f1e13] [cursor=pointer]:
+          - /url: "#about"
+      - generic [ref=f1e14]:
+        - button "Sign In" [ref=f1e15] [cursor=pointer]
+        - button "Get Started" [ref=f1e16] [cursor=pointer]
+  - generic [ref=f1e19]:
+    - generic [ref=f1e20]:
+      - generic [ref=f1e21]: Now featuring AI-powered matching
+      - heading "Bridge the Gap Between Talent & Opportunity" [level=1] [ref=f1e23]
+      - paragraph [ref=f1e24]: TaIQ connects skilled professionals with leading employers across every industry. Your next great career move is one click away.
+      - generic [ref=f1e25]:
+        - button "Browse Jobs" [ref=f1e26] [cursor=pointer]
+        - button "Post a Job" [ref=f1e30] [cursor=pointer]
+      - generic [ref=f1e31]:
+        - generic [ref=f1e32]:
+          - generic [ref=f1e33]: 327+
+          - generic [ref=f1e34]: Active Jobs
+        - generic [ref=f1e35]:
+          - generic [ref=f1e36]: 449+
+          - generic [ref=f1e37]: Companies
+        - generic [ref=f1e38]:
+          - generic [ref=f1e39]: 0+
+          - generic [ref=f1e40]: Placed This Year
+    - generic [ref=f1e41]:
+      - generic [ref=f1e42]:
+        - generic [ref=f1e43] [cursor=pointer]: Find a Job
+        - generic [ref=f1e44] [cursor=pointer]: Hire Talent
+      - generic [ref=f1e45]:
+        - textbox "Job title, skill, or keyword" [ref=f1e50]
+        - textbox "City, state, or remote" [ref=f1e55]
+        - combobox [ref=f1e60]:
+          - option "All Job Types" [selected]
+          - option "Full-Time"
+          - option "Part-Time"
+          - option "Contract"
+          - option "Temporary"
+          - option "Internship"
+        - button "Search Jobs" [ref=f1e61] [cursor=pointer]
+      - generic [ref=f1e65]:
+        - paragraph [ref=f1e66]: "Popular searches:"
+        - generic [ref=f1e67]:
+          - generic [ref=f1e68] [cursor=pointer]: Software Engineer
+          - generic [ref=f1e69] [cursor=pointer]: Data Analyst
+          - generic [ref=f1e70] [cursor=pointer]: Product Manager
+          - generic [ref=f1e71] [cursor=pointer]: Nurse
+          - generic [ref=f1e72] [cursor=pointer]: Remote
+  - generic [ref=f1e74]:
+    - generic [ref=f1e75]: "Trusted by leading companies:"
+    - generic [ref=f1e76]:
+      - generic [ref=f1e77]: Microsoft
+      - generic [ref=f1e78]: Johnson & Johnson
+      - generic [ref=f1e79]: Goldman Sachs
+      - generic [ref=f1e80]: Amazon
+      - generic [ref=f1e81]: Pfizer
+      - generic [ref=f1e82]: General Motors
+  - generic [ref=f1e85]:
+    - generic [ref=f1e86]:
+      - generic [ref=f1e87]: 24,000+
+      - generic [ref=f1e88]: Open Positions
+    - generic [ref=f1e89]:
+      - generic [ref=f1e90]: 3,800+
+      - generic [ref=f1e91]: Partner Companies
+    - generic [ref=f1e92]:
+      - generic [ref=f1e93]: 98%
+      - generic [ref=f1e94]: Satisfaction Rate
+    - generic [ref=f1e95]:
+      - generic [ref=f1e96]: 180,000+
+      - generic [ref=f1e97]: Successful Placements
+  - generic [ref=f1e99]:
+    - generic [ref=f1e100]:
+      - generic [ref=f1e101]: Browse by Industry
+      - heading "Find Opportunities in Your Field" [level=2] [ref=f1e102]
+      - paragraph [ref=f1e103]: Explore thousands of openings across every sector of the economy
+    - generic [ref=f1e104]:
+      - generic [ref=f1e409] [cursor=pointer]:
+        - generic [ref=f1e410]: 💻
+        - generic [ref=f1e411]: Technology
+        - generic [ref=f1e412]: 6.8K jobs
+      - generic [ref=f1e413] [cursor=pointer]:
+        - generic [ref=f1e414]: 🏥
+        - generic [ref=f1e415]: Healthcare
+        - generic [ref=f1e416]: 4.3K jobs
+      - generic [ref=f1e417] [cursor=pointer]:
+        - generic [ref=f1e418]: 💰
+        - generic [ref=f1e419]: Finance
+        - generic [ref=f1e420]: 3.1K jobs
+      - generic [ref=f1e421] [cursor=pointer]:
+        - generic [ref=f1e422]: ⚙️
+        - generic [ref=f1e423]: Engineering
+        - generic [ref=f1e424]: 2.8K jobs
+      - generic [ref=f1e425] [cursor=pointer]:
+        - generic [ref=f1e426]: 📣
+        - generic [ref=f1e427]: Marketing
+        - generic [ref=f1e428]: 1.9K jobs
+      - generic [ref=f1e429] [cursor=pointer]:
+        - generic [ref=f1e430]: 🎓
+        - generic [ref=f1e431]: Education
+        - generic [ref=f1e432]: 1.5K jobs
+      - generic [ref=f1e433] [cursor=pointer]:
+        - generic [ref=f1e434]: 🏭
+        - generic [ref=f1e435]: Manufacturing
+        - generic [ref=f1e436]: 2.2K jobs
+      - generic [ref=f1e437] [cursor=pointer]:
+        - generic [ref=f1e438]: 🛍️
+        - generic [ref=f1e439]: Retail
+        - generic [ref=f1e440]: 1.7K jobs
+      - generic [ref=f1e441] [cursor=pointer]:
+        - generic [ref=f1e442]: 🚚
+        - generic [ref=f1e443]: Logistics
+        - generic [ref=f1e444]: 1.3K jobs
+      - generic [ref=f1e445] [cursor=pointer]:
+        - generic [ref=f1e446]: ⚖️
+        - generic [ref=f1e447]: Legal
+        - generic [ref=f1e448]: 980 jobs
+  - generic [ref=f1e146]:
+    - generic [ref=f1e147]:
+      - generic [ref=f1e148]: Featured Opportunities
+      - heading "Jobs Handpicked For You" [level=2] [ref=f1e149]
+      - paragraph [ref=f1e150]: Thousands of new roles added daily from top employers nationwide
+    - generic [ref=f1e151]:
+      - button "All" [ref=f1e152] [cursor=pointer]
+      - button "Full-Time" [ref=f1e153] [cursor=pointer]
+      - button "Part-Time" [ref=f1e154] [cursor=pointer]
+      - button "Contract" [ref=f1e155] [cursor=pointer]
+      - button "Remote" [ref=f1e156] [cursor=pointer]
+    - generic [ref=f1e157]:
+      - generic [ref=f1e808] [cursor=pointer]:
+        - generic [ref=f1e809]:
+          - generic [ref=f1e810]: 🏥
+          - generic [ref=f1e811]: New
+        - generic [ref=f1e813]:
+          - generic [ref=f1e814]: Travel LTAC RN - $1,985 per week
+          - generic [ref=f1e815]: Supplemental Health Care ✅
+        - generic [ref=f1e816]:
+          - generic [ref=f1e817]: Green Cove Springs, Clay County
+          - generic [ref=f1e821]: Full-Time
+          - generic [ref=f1e825]: $0–$103.2K
+        - generic [ref=f1e826]:
+          - generic [ref=f1e827]:
+            - generic [ref=f1e828]: Posted 23m ago
+            - generic [ref=f1e829]: 0 views
+          - button "Apply Now" [ref=f1e830]
+      - generic [ref=f1e831] [cursor=pointer]:
+        - generic [ref=f1e832]:
+          - generic [ref=f1e833]: 🏥
+          - generic [ref=f1e834]: New
+        - generic [ref=f1e836]:
+          - generic [ref=f1e837]: Local Contract Physical Therapist - $44-48 per hour
+          - generic [ref=f1e838]: Host Healthcare ✅
+        - generic [ref=f1e839]:
+          - generic [ref=f1e840]: Pensacola, Escambia County
+          - generic [ref=f1e844]: Full-Time
+          - generic [ref=f1e848]: $91.5K–$99.8K
+        - generic [ref=f1e849]:
+          - generic [ref=f1e850]:
+            - generic [ref=f1e851]: Posted 23m ago
+            - generic [ref=f1e852]: 0 views
+          - button "Apply Now" [ref=f1e853]
+      - generic [ref=f1e854] [cursor=pointer]:
+        - generic [ref=f1e855]:
+          - generic [ref=f1e856]: 🏢
+          - generic [ref=f1e857]: New
+        - generic [ref=f1e859]:
+          - generic [ref=f1e860]: Travel L&D RN - $2,204 per week
+          - generic [ref=f1e861]: Zack Group ✅
+        - generic [ref=f1e862]:
+          - generic [ref=f1e863]: Pantego, Tarrant County
+          - generic [ref=f1e867]: Full-Time
+          - generic [ref=f1e871]: $0–$114.6K
+        - generic [ref=f1e872]:
+          - generic [ref=f1e873]:
+            - generic [ref=f1e874]: Posted 23m ago
+            - generic [ref=f1e875]: 0 views
+          - button "Apply Now" [ref=f1e876]
+      - generic [ref=f1e877] [cursor=pointer]:
+        - generic [ref=f1e878]:
+          - generic [ref=f1e879]: 🏢
+          - generic [ref=f1e880]: New
+        - generic [ref=f1e882]:
+          - generic [ref=f1e883]: Travel Nurse RN - OR - Operating Room - $2,317 per week
+          - generic [ref=f1e884]: TotalMed RN ✅
+        - generic [ref=f1e885]:
+          - generic [ref=f1e886]: Glendale, Denver
+          - generic [ref=f1e890]: Full-Time
+          - generic [ref=f1e894]: $0–$120.5K
+        - generic [ref=f1e895]:
+          - generic [ref=f1e896]:
+            - generic [ref=f1e897]: Posted 23m ago
+            - generic [ref=f1e898]: 0 views
+          - button "Apply Now" [ref=f1e899]
+      - generic [ref=f1e900] [cursor=pointer]:
+        - generic [ref=f1e901]:
+          - generic [ref=f1e902]: 🏢
+          - generic [ref=f1e903]: New
+        - generic [ref=f1e905]:
+          - generic [ref=f1e906]: Travel Nurse RN - ED - Emergency Department - $2,383 per week
+          - generic [ref=f1e907]: Wellspring Nurse Source ✅
+        - generic [ref=f1e908]:
+          - generic [ref=f1e909]: Gainesville, Alachua County
+          - generic [ref=f1e913]: Full-Time
+          - generic [ref=f1e917]: $0–$123.9K
+        - generic [ref=f1e918]:
+          - generic [ref=f1e919]:
+            - generic [ref=f1e920]: Posted 23m ago
+            - generic [ref=f1e921]: 0 views
+          - button "Apply Now" [ref=f1e922]
+      - generic [ref=f1e923] [cursor=pointer]:
+        - generic [ref=f1e924]:
+          - generic [ref=f1e925]: 🏥
+          - generic [ref=f1e926]: New
+        - generic [ref=f1e928]:
+          - generic [ref=f1e929]: Travel ED RN - $2,860 per week
+          - generic [ref=f1e930]: Voca Healthcare ✅
+        - generic [ref=f1e931]:
+          - generic [ref=f1e932]: Grand Central, Manhattan
+          - generic [ref=f1e936]: Full-Time
+          - generic [ref=f1e940]: $0–$148.7K
+        - generic [ref=f1e941]:
+          - generic [ref=f1e942]:
+            - generic [ref=f1e943]: Posted 23m ago
+            - generic [ref=f1e944]: 0 views
+          - button "Apply Now" [ref=f1e945]
+      - generic [ref=f1e946] [cursor=pointer]:
+        - generic [ref=f1e947]:
+          - generic [ref=f1e948]: 🏢
+          - generic [ref=f1e949]: New
+        - generic [ref=f1e951]:
+          - generic [ref=f1e952]: Travel Nurse RN - Radiology - $2,710 per week
+          - generic [ref=f1e953]: TotalMed RN ✅
+        - generic [ref=f1e954]:
+          - generic [ref=f1e955]: Little Tucson, Pima County
+          - generic [ref=f1e959]: Full-Time
+          - generic [ref=f1e963]: $0–$140.9K
+        - generic [ref=f1e964]:
+          - generic [ref=f1e965]:
+            - generic [ref=f1e966]: Posted 23m ago
+            - generic [ref=f1e967]: 0 views
+          - button "Apply Now" [ref=f1e968]
+      - generic [ref=f1e969] [cursor=pointer]:
+        - generic [ref=f1e970]:
+          - generic [ref=f1e971]: 🏢
+          - generic [ref=f1e972]: New
+        - generic [ref=f1e974]:
+          - generic [ref=f1e975]: Travel Medical Surgical Telemetry RN - $2,835 per week
+          - generic [ref=f1e976]: Cross Country Nurses ✅
+        - generic [ref=f1e977]:
+          - generic [ref=f1e978]: North Cambridge, Middlesex County
+          - generic [ref=f1e982]: Full-Time
+          - generic [ref=f1e986]: $0–$147.4K
+        - generic [ref=f1e987]:
+          - generic [ref=f1e988]:
+            - generic [ref=f1e989]: Posted 23m ago
+            - generic [ref=f1e990]: 0 views
+          - button "Apply Now" [ref=f1e991]
+      - generic [ref=f1e992] [cursor=pointer]:
+        - generic [ref=f1e993]:
+          - generic [ref=f1e994]: 🏥
+          - generic [ref=f1e995]: New
+        - generic [ref=f1e997]:
+          - generic [ref=f1e998]: Travel Labor & Delivery RN - $2,715 per week
+          - generic [ref=f1e999]: Host Healthcare ✅
+        - generic [ref=f1e1000]:
+          - generic [ref=f1e1001]: Freeport, Stephenson County
+          - generic [ref=f1e1005]: Full-Time
+          - generic [ref=f1e1009]: $0–$141.2K
+        - generic [ref=f1e1010]:
+          - generic [ref=f1e1011]:
+            - generic [ref=f1e1012]: Posted 23m ago
+            - generic [ref=f1e1013]: 0 views
+          - button "Apply Now" [ref=f1e1014]
+      - generic [ref=f1e1015] [cursor=pointer]:
+        - generic [ref=f1e1016]:
+          - generic [ref=f1e1017]: 🏢
+          - generic [ref=f1e1018]: New
+        - generic [ref=f1e1020]:
+          - generic [ref=f1e1021]: Travel Case Manager - $2,773 per week
+          - generic [ref=f1e1022]: American Traveler ✅
+        - generic [ref=f1e1023]:
+          - generic [ref=f1e1024]: Magnolia Park, Los Angeles County
+          - generic [ref=f1e1028]: Full-Time
+          - generic [ref=f1e1032]: $0–$144.2K
+        - generic [ref=f1e1033]:
+          - generic [ref=f1e1034]:
+            - generic [ref=f1e1035]: Posted 23m ago
+            - generic [ref=f1e1036]: 0 views
+          - button "Apply Now" [ref=f1e1037]
+      - generic [ref=f1e1038] [cursor=pointer]:
+        - generic [ref=f1e1039]:
+          - generic [ref=f1e1040]: 🏢
+          - generic [ref=f1e1041]: New
+        - generic [ref=f1e1043]:
+          - generic [ref=f1e1044]: Travel ICU RN - $2,335 per week
+          - generic [ref=f1e1045]: Anders Group ✅
+        - generic [ref=f1e1046]:
+          - generic [ref=f1e1047]: Mountain House, San Joaquin County
+          - generic [ref=f1e1051]: Full-Time
+          - generic [ref=f1e1055]: $0–$121.4K
+        - generic [ref=f1e1056]:
+          - generic [ref=f1e1057]:
+            - generic [ref=f1e1058]: Posted 23m ago
+            - generic [ref=f1e1059]: 0 views
+          - button "Apply Now" [ref=f1e1060]
+      - generic [ref=f1e1061] [cursor=pointer]:
+        - generic [ref=f1e1062]:
+          - generic [ref=f1e1063]: 🏥
+          - generic [ref=f1e1064]: New
+        - generic [ref=f1e1066]:
+          - generic [ref=f1e1067]: Travel Nurse RN - ED - Emergency Department - $3,337 per week
+          - generic [ref=f1e1068]: First Connect Health ✅
+        - generic [ref=f1e1069]:
+          - generic [ref=f1e1070]: Simi Valley, Ventura County
+          - generic [ref=f1e1074]: Full-Time
+          - generic [ref=f1e1078]: $0–$173.5K
+        - generic [ref=f1e1079]:
+          - generic [ref=f1e1080]:
+            - generic [ref=f1e1081]: Posted 23m ago
+            - generic [ref=f1e1082]: 0 views
+          - button "Apply Now" [ref=f1e1083]
+    - generic [ref=f1e725]:
+      - button "‹ Prev" [ref=f1e1084] [cursor=pointer]
+      - button "1" [ref=f1e1085] [cursor=pointer]
+      - button "2" [ref=f1e1086] [cursor=pointer]
+      - button "3" [ref=f1e1087] [cursor=pointer]
+      - generic [ref=f1e1088]: …
+      - button "28" [ref=f1e1089] [cursor=pointer]
+      - button "Next ›" [ref=f1e1090] [cursor=pointer]
+    - paragraph [ref=f1e732]: 327 open positions · page 2 of 28
+  - generic [ref=f1e192]:
+    - generic [ref=f1e193]:
+      - generic [ref=f1e194]: How It Works
+      - heading "Land Your Dream Job in 4 Simple Steps" [level=2] [ref=f1e195]
+      - generic [ref=f1e196]:
+        - generic [ref=f1e197]:
+          - generic [ref=f1e198]: "1"
+          - generic [ref=f1e199]:
+            - heading "Create Your Profile" [level=3] [ref=f1e200]
+            - paragraph [ref=f1e201]: Build a compelling profile that showcases your skills, experience, and career goals to thousands of employers.
+        - generic [ref=f1e202]:
+          - generic [ref=f1e203]: "2"
+          - generic [ref=f1e204]:
+            - heading "AI-Powered Matching" [level=3] [ref=f1e205]
+            - paragraph [ref=f1e206]: Our intelligent algorithm analyzes your profile and surfaces the most relevant roles based on your skills and preferences.
+        - generic [ref=f1e207]:
+          - generic [ref=f1e208]: "3"
+          - generic [ref=f1e209]:
+            - heading "Apply With One Click" [level=3] [ref=f1e210]
+            - paragraph [ref=f1e211]: Apply to multiple positions instantly. Track every application's status in real-time from your dashboard.
+        - generic [ref=f1e212]:
+          - generic [ref=f1e213]: "4"
+          - generic [ref=f1e214]:
+            - heading "Get Hired & Thrive" [level=3] [ref=f1e215]
+            - paragraph [ref=f1e216]: Our dedicated success team supports you through offer negotiations and your first 90 days on the job.
+    - generic [ref=f1e217]:
+      - generic [ref=f1e218]:
+        - heading "🎯 Match Found!" [level=4] [ref=f1e219]
+        - paragraph [ref=f1e220]: Senior Software Engineer at Acme Corp
+        - generic [ref=f1e221]:
+          - generic [ref=f1e222]: 👤
+          - generic [ref=f1e223]:
+            - generic [ref=f1e224]: 97%
+            - generic [ref=f1e225]: Skills Match
+          - generic [ref=f1e226]:
+            - generic [ref=f1e227]: ● Applied
+            - generic [ref=f1e228]: 2 min ago
+      - generic [ref=f1e229]:
+        - heading "📅 Interview Scheduled" [level=4] [ref=f1e230]
+        - paragraph [ref=f1e231]: Wednesday, April 9 at 2:00 PM EST
+        - generic [ref=f1e232]:
+          - generic [ref=f1e233]: Confirmed
+          - generic [ref=f1e234]: Google Meet
+      - generic [ref=f1e235]:
+        - heading "🎉 Offer Received!" [level=4] [ref=f1e236]
+        - paragraph [ref=f1e237]: $145,000 / year + equity
+        - generic [ref=f1e238]: Review Offer
+  - generic [ref=f1e241]:
+    - generic [ref=f1e242]:
+      - generic [ref=f1e243]: Success Stories
+      - heading "What Our Community Says" [level=2] [ref=f1e244]
+      - paragraph [ref=f1e245]: Thousands of professionals and employers trust TaIQ every day
+    - generic [ref=f1e246]:
+      - generic [ref=f1e733]:
+        - generic [ref=f1e734]: ★★★★★
+        - paragraph [ref=f1e735]: "\"TaIQ connected me with my dream job in just 2 weeks. The platform is intuitive and the team is incredibly supportive throughout the entire process.\""
+        - generic [ref=f1e736]:
+          - generic [ref=f1e737]: S
+          - generic [ref=f1e738]:
+            - generic [ref=f1e739]: Sarah Johnson
+            - generic [ref=f1e740]: Software Engineer at Google
+      - generic [ref=f1e741]:
+        - generic [ref=f1e742]: ★★★★★
+        - paragraph [ref=f1e743]: "\"We have been using TaIQ to source top-tier candidates and the quality of applicants is consistently excellent. Highly recommended for any growing company.\""
+        - generic [ref=f1e744]:
+          - generic [ref=f1e745]: M
+          - generic [ref=f1e746]:
+            - generic [ref=f1e747]: Michael Chen
+            - generic [ref=f1e748]: HR Director at Pfizer
+      - generic [ref=f1e749]:
+        - generic [ref=f1e750]: ★★★★★
+        - paragraph [ref=f1e751]: "\"After months of searching on other platforms, TaIQ matched me with the perfect role that aligned with both my skills and career goals.\""
+        - generic [ref=f1e752]:
+          - generic [ref=f1e753]: P
+          - generic [ref=f1e754]:
+            - generic [ref=f1e755]: Priya Patel
+            - generic [ref=f1e756]: Data Scientist at Goldman Sachs
+      - generic [ref=f1e757]:
+        - generic [ref=f1e758]: ★★★★☆
+        - paragraph [ref=f1e759]: "\"The talent pool on TaIQ is exceptional. We filled 12 positions in a single quarter, saving us significant time and recruiting costs.\""
+        - generic [ref=f1e760]:
+          - generic [ref=f1e761]: J
+          - generic [ref=f1e762]:
+            - generic [ref=f1e763]: James Williams
+            - generic [ref=f1e764]: Operations Manager at Amazon
+      - generic [ref=f1e765]:
+        - generic [ref=f1e766]: ★★★★★
+        - paragraph [ref=f1e767]: "\"Simple, clean, and effective. I uploaded my resume, filled in my preferences, and had 5 interview invitations within a week.\""
+        - generic [ref=f1e768]:
+          - generic [ref=f1e769]: E
+          - generic [ref=f1e770]:
+            - generic [ref=f1e771]: Emma Rodriguez
+            - generic [ref=f1e772]: UX Designer at Apple
+      - generic [ref=f1e773]:
+        - generic [ref=f1e774]: ★★★★★
+        - paragraph [ref=f1e775]: "\"TaIQ has become our primary recruiting channel. The quality of candidates and the platform support are unmatched in the industry.\""
+        - generic [ref=f1e776]:
+          - generic [ref=f1e777]: D
+          - generic [ref=f1e778]:
+            - generic [ref=f1e779]: David Kim
+            - generic [ref=f1e780]: CFO at Tesla
+  - generic [ref=f1e297]:
+    - generic [ref=f1e298]:
+      - generic [ref=f1e299]:
+        - generic [ref=f1e300]: 🧠
+        - heading "AI-Powered Matching" [level=3] [ref=f1e301]
+        - paragraph [ref=f1e302]: Proprietary algorithms surface the best candidates for every role, reducing time-to-hire by 60%.
+      - generic [ref=f1e303]:
+        - generic [ref=f1e304]: 🌐
+        - heading "National Reach" [level=3] [ref=f1e305]
+        - paragraph [ref=f1e306]: Access talent across all 50 states and remote candidates worldwide through our platform.
+      - generic [ref=f1e307]:
+        - generic [ref=f1e308]: ✅
+        - heading "Pre-Screened Candidates" [level=3] [ref=f1e309]
+        - paragraph [ref=f1e310]: Every applicant is vetted for skills and experience before reaching your inbox.
+      - generic [ref=f1e311]:
+        - generic [ref=f1e312]: 📊
+        - heading "Analytics Dashboard" [level=3] [ref=f1e313]
+        - paragraph [ref=f1e314]: Real-time data on applications, pipeline velocity, offer acceptance, and DEI metrics.
+    - generic [ref=f1e315]:
+      - generic [ref=f1e316]: Why TaIQ
+      - heading "The Smarter Way to Hire & Get Hired" [level=2] [ref=f1e317]
+      - paragraph [ref=f1e318]: Whether you're a job seeker looking for your next move or an employer building a world-class team, TaIQ gives you the tools, network, and expert guidance to succeed.
+      - generic [ref=f1e319]:
+        - generic [ref=f1e320]:
+          - generic [ref=f1e321]: ✓
+          - text: Access to 180,000+ pre-screened candidates
+        - generic [ref=f1e322]:
+          - generic [ref=f1e323]: ✓
+          - text: Average time-to-hire under 14 days
+        - generic [ref=f1e324]:
+          - generic [ref=f1e325]: ✓
+          - text: Dedicated account manager support
+        - generic [ref=f1e326]:
+          - generic [ref=f1e327]: ✓
+          - text: 90-day placement guarantee
+        - generic [ref=f1e328]:
+          - generic [ref=f1e329]: ✓
+          - text: ATS integrations with major HR systems
+      - button "Start Hiring Today" [ref=f1e330] [cursor=pointer]
+  - generic [ref=f1e332]:
+    - generic [ref=f1e333]: Ready to Get Started?
+    - heading "Your Next Opportunity Is Waiting" [level=2] [ref=f1e334]
+    - paragraph [ref=f1e335]: Join over 2 million professionals who found their perfect role through TaIQ.
+    - generic [ref=f1e336]:
+      - button "Create Free Account" [ref=f1e337] [cursor=pointer]
+      - button "Post a Job — Free Trial" [ref=f1e338] [cursor=pointer]
+  - generic [ref=f1e340]:
+    - generic [ref=f1e341]:
+      - generic [ref=f1e342]: Career Insights
+      - heading "Resources to Elevate Your Career" [level=2] [ref=f1e343]
+      - paragraph [ref=f1e344]: Expert advice, industry trends, and hiring guides from our team of career specialists
+    - generic [ref=f1e345]:
+      - 'link "🏠 Workplace Remote Work in 2025: Staying Productive and Connected Hybrid and remote setups are here to stay. Here''s how top performers maintain focus, build relationships, and advance their careers from anywhere. April 1, 2026 · 6 min read Read More →" [ref=f1e781] [cursor=pointer]':
+        - /url: blog-post.html?slug=remote-work-productivity-2025
+        - generic [ref=f1e782]: 🏠
+        - generic [ref=f1e783]:
+          - generic [ref=f1e784]: Workplace
+          - 'heading "Remote Work in 2025: Staying Productive and Connected" [level=3] [ref=f1e785]'
+          - paragraph [ref=f1e786]: Hybrid and remote setups are here to stay. Here's how top performers maintain focus, build relationships, and advance their careers from anywhere.
+          - generic [ref=f1e787]:
+            - generic [ref=f1e788]: April 1, 2026 · 6 min read
+            - generic [ref=f1e789]: Read More →
+      - link "🤝 Hiring Guide How to Build a Winning Employer Brand in 2025 Top candidates have options. Learn how leading companies attract elite talent in a competitive market. April 1, 2026 · 8 min read Read More →" [ref=f1e790] [cursor=pointer]:
+        - /url: blog-post.html?slug=employer-branding-2025
+        - generic [ref=f1e791]: 🤝
+        - generic [ref=f1e792]:
+          - generic [ref=f1e793]: Hiring Guide
+          - heading "How to Build a Winning Employer Brand in 2025" [level=3] [ref=f1e794]
+          - paragraph [ref=f1e795]: Top candidates have options. Learn how leading companies attract elite talent in a competitive market.
+          - generic [ref=f1e796]:
+            - generic [ref=f1e797]: April 1, 2026 · 8 min read
+            - generic [ref=f1e798]: Read More →
+      - link "📈 Industry Trends The 15 Fastest-Growing Jobs in Tech for 2025 AI, cybersecurity, and cloud computing are reshaping the workforce. Here's where the opportunities lie. April 1, 2026 · 9 min read Read More →" [ref=f1e799] [cursor=pointer]:
+        - /url: blog-post.html?slug=tech-jobs-2025
+        - generic [ref=f1e800]: 📈
+        - generic [ref=f1e801]:
+          - generic [ref=f1e802]: Industry Trends
+          - heading "The 15 Fastest-Growing Jobs in Tech for 2025" [level=3] [ref=f1e803]
+          - paragraph [ref=f1e804]: AI, cybersecurity, and cloud computing are reshaping the workforce. Here's where the opportunities lie.
+          - generic [ref=f1e805]:
+            - generic [ref=f1e806]: April 1, 2026 · 9 min read
+            - generic [ref=f1e807]: Read More →
+    - link "View All Insights →" [ref=f1e348] [cursor=pointer]:
+      - /url: blog.html
+  - contentinfo [ref=f1e349]:
+    - generic [ref=f1e350]:
+      - generic [ref=f1e351]:
+        - generic [ref=f1e352]:
+          - heading "TaIQ" [level=3] [ref=f1e353]
+          - paragraph [ref=f1e354]: Connecting exceptional talent with extraordinary opportunities across every industry since 2018.
+          - generic [ref=f1e355]:
+            - generic [ref=f1e356] [cursor=pointer]: in
+            - generic [ref=f1e357] [cursor=pointer]: 𝕏
+            - generic [ref=f1e358] [cursor=pointer]: f
+            - generic [ref=f1e359] [cursor=pointer]: ig
+        - generic [ref=f1e360]:
+          - heading "Job Seekers" [level=4] [ref=f1e361]
+          - list [ref=f1e362]:
+            - listitem [ref=f1e363]:
+              - link "Browse Jobs" [ref=f1e364] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e365]:
+              - link "Career Resources" [ref=f1e366] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e367]:
+              - link "Resume Builder" [ref=f1e368] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e369]:
+              - link "Salary Explorer" [ref=f1e370] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e371]:
+              - link "Interview Prep" [ref=f1e372] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f1e373]:
+          - heading "Employers" [level=4] [ref=f1e374]
+          - list [ref=f1e375]:
+            - listitem [ref=f1e376]:
+              - link "Post a Job" [ref=f1e377] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e378]:
+              - link "Search Candidates" [ref=f1e379] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e380]:
+              - link "Pricing" [ref=f1e381] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e382]:
+              - link "ATS Integrations" [ref=f1e383] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e384]:
+              - link "Employer Branding" [ref=f1e385] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=f1e386]:
+          - heading "Company" [level=4] [ref=f1e387]
+          - list [ref=f1e388]:
+            - listitem [ref=f1e389]:
+              - link "About Us" [ref=f1e390] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e391]:
+              - link "Careers" [ref=f1e392] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e393]:
+              - link "Press" [ref=f1e394] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e395]:
+              - link "Contact" [ref=f1e396] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f1e397]:
+              - link "Blog" [ref=f1e398] [cursor=pointer]:
+                - /url: blog.html
+      - generic [ref=f1e399]:
+        - generic [ref=f1e400]: © 2025 TaIQ Inc. All rights reserved.
+        - generic [ref=f1e401]:
+          - link "Privacy Policy" [ref=f1e402] [cursor=pointer]:
+            - /url: privacy-policy.html
+          - link "Terms of Service" [ref=f1e403] [cursor=pointer]:
+            - /url: terms-of-service.html
+          - link "Cookie Policy" [ref=f1e404] [cursor=pointer]:
+            - /url: cookie-policy.html
+          - link "Accessibility" [ref=f1e405] [cursor=pointer]:
+            - /url: accessibility.html
+  - dialog "Welcome Back":
+    - generic:
+      - generic:
+        - heading "Welcome Back" [level=2]
+        - button "Close": ×
+      - generic:
+        - tab "Sign In"
+        - tab "Create Account"
+      - generic:
+        - generic:
+          - generic: Email Address
+          - textbox "Email Address":
+            - /placeholder: you@example.com
+        - generic:
+          - generic: Password
+          - textbox "Password":
+            - /placeholder: ••••••••
+        - button "Sign In"
+        - generic:
+          - text: Don't have an account?
+          - link "Sign up free":
+            - /url: "#"
+  - generic [ref=f1e406]:
+    - generic [ref=f1e407]: ✅
+    - generic [ref=f1e408]: Done!
+  - dialog
+  - dialog:
+    - generic:
+      - generic:
+        - generic: Apply for this Position
+        - generic: ×
+      - generic:
+        - generic:
+          - generic: Full Name *
+          - textbox "Your full name"
+        - generic:
+          - generic: Email Address *
+          - textbox "you@example.com"
+        - generic:
+          - generic: Phone Number
+          - textbox "(555) 123-4567"
+        - generic:
+          - generic: LinkedIn Profile
+          - textbox "https://linkedin.com/in/yourprofile"
+        - generic: Resume / CV *
+        - generic:
+          - generic: Cover Letter
+          - textbox "Tell the hiring team why you're a great fit for this role..."
+        - generic:
+          - generic: How did you hear about this position?
+          - combobox:
+            - option "Select one" [selected]
+            - option "TaIQ Platform"
+            - option "LinkedIn"
+            - option "Employee Referral"
+            - option "Job Board"
+            - option "Friend / Family"
+            - option "Recruiter"
+            - option "Other"
+          - generic:
+            - textbox "Referrer's email address"
+        - generic:
+          - checkbox "I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes."
+          - generic: I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes.
+        - button "Submit Application"

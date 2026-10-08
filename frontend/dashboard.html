@@ -334,7 +334,6 @@
       <li><a onclick="showPane('saved')" id="nav-saved" class="candidate-only"><span class="nav-icon">❤️</span>Saved Jobs</a></li>
       <li><a onclick="showPane('profile')" id="nav-profile"><span class="nav-icon">👤</span>My Profile</a></li>
       <li><a onclick="showPane('notifications')" id="nav-notifications"><span class="nav-icon">🔔</span>Notifications<span id="notifBadge" style="display:none;margin-left:auto;background:#ef4444;color:#fff;font-size:.68rem;font-weight:700;border-radius:10px;padding:.1rem .42rem;line-height:1.4"></span></a></li>
-      <li id="nav-company-li" style="display:none"><a onclick="showPane('company')" id="nav-company"><span class="nav-icon">🏢</span>My Company</a></li>
       <li><a onclick="showPane('settings')" id="nav-settings"><span class="nav-icon">⚙️</span>Settings</a></li>
       <li id="adminNavItem" style="display:none"><a href="admin.html" style="color:#ef4444"><span class="nav-icon">🔧</span>Admin Panel</a></li>
     </ul>
@@ -553,7 +552,10 @@
     <div id="pane-notifications" class="pane" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:.75rem">
         <h2 class="pane-title" style="margin:0">Notifications</h2>
-        <button class="btn btn-ghost" id="markAllReadBtn" onclick="markAllNotificationsRead()" style="display:none;font-size:.82rem">Mark all as read</button>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <button class="btn btn-ghost" onclick="loadNotificationsPane()" style="font-size:.82rem">↻ Refresh</button>
+          <button class="btn btn-ghost" id="markAllReadBtn" onclick="markAllNotificationsRead()" style="display:none;font-size:.82rem">Mark all as read</button>
+        </div>
       </div>
       <div id="notifPermBanner" style="display:none;background:#fef3c7;border:1px solid #fbbf24;border-radius:8px;padding:.75rem 1rem;font-size:.85rem;color:#92400e;margin-bottom:1rem"></div>
       <div class="card" id="notifList">
@@ -595,13 +597,6 @@
         <p style="font-size:.85rem;color:var(--steel);margin-bottom:1rem">Sign out from all devices by logging out.</p>
         <button class="btn btn-danger" onclick="doLogout()">Sign Out</button>
       </div>
-    <!-- ══ PANE: My Company ══════════════════════════════════════════════════ -->
-    <div id="pane-company" class="pane" style="display:none">
-      <h2 class="pane-title">My Company</h2>
-      <div class="card" id="myCompanyCard">
-        <div style="text-align:center;padding:2rem;color:var(--steel)">Loading…</div>
-      </div>
-    </div>
 
     <!-- ══ PANE: Activities ══════════════════════════════════════════════════ -->
     <div id="pane-activities" class="pane" style="display:none">
@@ -766,6 +761,17 @@
   </div>
 </div>
 
+<!-- Application Detail Modal -->
+<div class="modal-overlay" id="appDetailModal" onclick="if(event.target===this)closeAppDetailModal()">
+  <div class="modal-box" style="width:min(640px,100%);max-height:85vh;overflow-y:auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem">
+      <div class="modal-title" style="margin-bottom:0" id="appDetailTitle">Application Details</div>
+      <button style="background:none;border:none;cursor:pointer;font-size:1.3rem;color:var(--steel);line-height:1" onclick="closeAppDetailModal()">✕</button>
+    </div>
+    <div id="appDetailBody"></div>
+  </div>
+</div>
+
 <script>
 const API = '/api/v1';
 const token = localStorage.getItem('taiq_token');
@@ -814,8 +820,14 @@ function showPane(name) {
   if (name === 'profile') loadProfilePane();
   if (name === 'settings') loadSettingsPane();
   if (name === 'activities') loadActivitiesPane();
-  if (name === 'company') loadMyCompanyPane();
-  if (name === 'notifications') loadNotificationsPane();
+  if (name === 'notifications') {
+    loadNotificationsPane();
+    clearInterval(_notifPaneTimer);
+    _notifPaneTimer = setInterval(loadNotificationsPane, 5000);
+  } else {
+    clearInterval(_notifPaneTimer);
+    _notifPaneTimer = null;
+  }
 }
 
 // ── Populate nav/avatar ───────────────────────────────────────────────────────
@@ -831,9 +843,6 @@ function populateStaticUI(user) {
   document.getElementById('welcomeHeading').textContent = `Welcome, ${firstName}! 👋`;
   document.getElementById('welcomeSub').textContent = user.role === 'admin' ? 'Platform-wide overview — all jobs, users and applications.' : user.role === 'employer' ? 'Manage your postings and review candidate applications.' : "Here's your career activity at a glance.";
   if (user.role === 'admin') { const a = document.getElementById('adminNavItem'); if(a) a.style.display=''; }
-  if (user.role === 'employer' || user.role === 'admin') {
-    const li = document.getElementById('nav-company-li'); if(li) li.style.display='';
-  }
   // Welcome banner actions — employer/admin get Post Job CTA
   if (user.role === 'employer' || user.role === 'admin') {
     document.getElementById('welcomeBannerActions').innerHTML = `
@@ -1028,7 +1037,6 @@ let pjSkills = [];
 let pjSelectedCompanyId = null;   // null = create new
 let pjCoFocusIndex = -1;
 let pjCoOptions = [];             // [{id, name, is_verified}]
-let employerCompanyData = null;   // cached company info
 
 // Company combobox
 async function pjCoSearch() {
@@ -1107,15 +1115,7 @@ async function openPostJobModal() {
   renderPjSkills();
   clearPjFile();
 
-  // Load employer's existing company once
-  if (employerCompanyData === undefined || employerCompanyData === null) {
-    try {
-      const r = await fetch(`${API}/employer/jobs/company`, { headers: authHeaders() });
-      const data = r.ok ? await r.json() : {};
-      employerCompanyData = data.exists ? data : null;
-    } catch { employerCompanyData = null; }
-  }
-  resetPjCompanyCombo(employerCompanyData);
+  resetPjCompanyCombo(null);
 
   // Load industries if not already loaded
   const sel = document.getElementById('pjIndustry');
@@ -1271,7 +1271,7 @@ async function submitPostJob() {
   const coSearch    = document.getElementById('pjCoSearch').value.trim();
   const companyName = document.getElementById('pjCompanyName').value.trim();
   const newFieldVis = document.getElementById('pjCoNewField').classList.contains('visible');
-  if (!pjSelectedCompanyId && !companyName && !employerCompanyData) {
+  if (!pjSelectedCompanyId && !companyName) {
     showToast('Please select or create a company', '⚠️'); return;
   }
   if (newFieldVis && !companyName) {
@@ -1312,7 +1312,6 @@ async function submitPostJob() {
       throw new Error(err.detail || `Error ${r.status}`);
     }
     closePostJobModal();
-    employerCompanyData = null; // force re-fetch so My Company pane stays fresh
     showToast(`"${title}" posted successfully! 🎉`, '✅');
     // Refresh job postings list
     await loadDashboardEmployer(null);
@@ -1637,8 +1636,11 @@ async function loadApplicationsPane() {
       el.innerHTML=`<div class="empty-state"><div class="empty-state-icon">📭</div><p>No applications yet.</p><button class="btn btn-primary" onclick="showPane('jobs')">Browse Jobs</button></div>`;
       return;
     }
+    const appData = {};
+    apps.forEach(a => appData[a.id] = a);
+    window._appDetailData = appData;
     el.innerHTML=`<div class="app-list">${apps.map(a=>`
-      <div class="app-item" style="flex-wrap:wrap;gap:.5rem">
+      <div class="app-item" style="flex-wrap:wrap;gap:.5rem;cursor:pointer" onclick="openAppDetail(${a.id})">
         <div class="app-logo">🏢</div>
         <div class="app-info">
           <div class="app-title">${a.job?.title||'Unknown Job'}</div>
@@ -1646,7 +1648,7 @@ async function loadApplicationsPane() {
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0">
           ${statusBadge(a.status)}
-          ${a.status!=='withdrawn'?`<button class="btn btn-outline" style="padding:.3rem .7rem;font-size:.75rem" onclick="withdrawApp(${a.id},this)">Withdraw</button>`:''}
+          ${a.status!=='withdrawn'?`<button class="btn btn-outline" style="padding:.3rem .7rem;font-size:.75rem" onclick="event.stopPropagation();withdrawApp(${a.id},this)">Withdraw</button>`:''}
         </div>
       </div>`).join('')}</div>`;
   } catch {
@@ -1659,9 +1661,75 @@ async function withdrawApp(appId, btn) {
   btn.textContent='…'; btn.disabled=true;
   try {
     const r = await fetch(`${API}/applications/${appId}`, { method:'DELETE', headers: authHeaders() });
-    if (r.ok || r.status===204) { showToast('Application withdrawn','✅'); loadApplicationsPane(); }
+    if (r.ok || r.status===204) { showToast('Application withdrawn','✅'); closeAppDetailModal(); loadApplicationsPane(); }
     else { const e=await r.json(); showToast(e.detail||'Failed','❌'); btn.textContent='Withdraw'; btn.disabled=false; }
   } catch { showToast('Network error','⚠️'); btn.textContent='Withdraw'; btn.disabled=false; }
+}
+
+function openAppDetail(appId) {
+  const a = (window._appDetailData||{})[appId];
+  if (!a) return;
+  const j = a.job || {};
+  const co = j.company || {};
+  const salary = fmtSalary(j.salary_min, j.salary_max);
+  const skills = (j.skills_required||[]);
+  const statusColors = {applied:'#3b82f6',reviewing:'#f59e0b',interview:'#8b5cf6',offered:'#10b981',rejected:'#ef4444',withdrawn:'#94a3b8'};
+  const sc = statusColors[a.status] || '#64748b';
+
+  document.getElementById('appDetailTitle').textContent = j.title || 'Application Details';
+  document.getElementById('appDetailBody').innerHTML = `
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+      <div style="width:48px;height:48px;border-radius:10px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0">🏢</div>
+      <div>
+        <div style="font-weight:600;font-size:1.05rem">${j.title||'Unknown Job'}</div>
+        <div style="color:var(--steel);font-size:.88rem">${co.name||'Company'}${j.location?' · '+j.location:''}</div>
+      </div>
+      <div style="margin-left:auto"><span style="background:${sc}22;color:${sc};padding:.3rem .75rem;border-radius:20px;font-size:.8rem;font-weight:600;text-transform:capitalize">${a.status}</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem">
+      <div style="background:var(--surface2);border-radius:10px;padding:.75rem">
+        <div style="font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Applied</div>
+        <div style="font-size:.92rem;font-weight:500">${new Date(a.applied_at).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
+      </div>
+      <div style="background:var(--surface2);border-radius:10px;padding:.75rem">
+        <div style="font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Job Type</div>
+        <div style="font-size:.92rem;font-weight:500;text-transform:capitalize">${(j.job_type||'').replace('_',' ')||'—'}</div>
+      </div>
+      ${salary?`<div style="background:var(--surface2);border-radius:10px;padding:.75rem">
+        <div style="font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Salary</div>
+        <div style="font-size:.92rem;font-weight:500">${salary}</div>
+      </div>`:''}
+      <div style="background:var(--surface2);border-radius:10px;padding:.75rem">
+        <div style="font-size:.72rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem">Remote</div>
+        <div style="font-size:.92rem;font-weight:500">${j.remote?'Yes':'No'}</div>
+      </div>
+    </div>
+
+    ${skills.length?`<div style="margin-bottom:1.25rem">
+      <div style="font-size:.78rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Required Skills</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem">${skills.map(s=>`<span style="background:var(--surface2);border-radius:20px;padding:.25rem .65rem;font-size:.78rem">${s}</span>`).join('')}</div>
+    </div>`:''}
+
+    ${a.cover_letter?`<div style="margin-bottom:1.25rem">
+      <div style="font-size:.78rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Your Cover Letter</div>
+      <div style="background:var(--surface2);border-radius:10px;padding:1rem;font-size:.88rem;line-height:1.6;white-space:pre-wrap">${a.cover_letter}</div>
+    </div>`:''}
+
+    ${j.description?`<div style="margin-bottom:1.25rem">
+      <div style="font-size:.78rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Job Description</div>
+      <div style="background:var(--surface2);border-radius:10px;padding:1rem;font-size:.88rem;line-height:1.6;max-height:200px;overflow-y:auto">${j.description}</div>
+    </div>`:''}
+
+    ${a.status!=='withdrawn'?`<div style="display:flex;justify-content:flex-end;padding-top:.5rem;border-top:1px solid var(--border)">
+      <button class="btn btn-outline" style="color:#ef4444;border-color:#ef4444" onclick="withdrawApp(${a.id},this)">Withdraw Application</button>
+    </div>`:''}
+  `;
+  document.getElementById('appDetailModal').classList.add('open');
+}
+
+function closeAppDetailModal() {
+  document.getElementById('appDetailModal').classList.remove('open');
 }
 
 // ── Saved Jobs pane ───────────────────────────────────────────────────────────
@@ -2017,93 +2085,6 @@ function escHtml(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── My Company pane ───────────────────────────────────────────────────────────
-async function loadMyCompanyPane() {
-  const card = document.getElementById('myCompanyCard');
-  card.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--steel)">Loading…</div>';
-  try {
-    const r = await fetch(`${API}/employer/jobs/company`, { headers: authHeaders() });
-    const data = r.ok ? await r.json() : {};
-    if (!data.exists) {
-      card.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-state-icon">🏢</div>
-          <p>No company profile yet. Post a job and your company will be created automatically.</p>
-          <button class="btn btn-primary" style="margin-top:1rem" onclick="openPostJobModal()">Post Your First Job</button>
-        </div>`;
-      return;
-    }
-    employerCompanyData = data;
-    card.innerHTML = `
-      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem">
-        <div style="width:56px;height:56px;border-radius:1rem;background:linear-gradient(135deg,#e0f2fe,#bae6fd);display:grid;place-items:center;font-size:1.8rem;flex-shrink:0">🏢</div>
-        <div>
-          <div style="font-size:1.2rem;font-weight:700;color:var(--ink)">${escHtml(data.name)}</div>
-          <div style="margin-top:.25rem">${data.is_verified
-            ? '<span style="background:#f0fdf4;color:#16a34a;border-radius:999px;padding:.2rem .75rem;font-size:.78rem;font-weight:600">✓ Verified</span>'
-            : '<span style="background:#fff7ed;color:#c2410c;border-radius:999px;padding:.2rem .75rem;font-size:.78rem;font-weight:600">⏳ Pending Verification</span>'}</div>
-        </div>
-      </div>
-      <form id="myCompanyForm" onsubmit="saveMyCompany(event,${data.id})">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-          <div class="form-field" style="grid-column:1/-1">
-            <label class="form-label">Company Name</label>
-            <input class="form-input" name="name" value="${escHtml(data.name)}"/>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Headquarters</label>
-            <input class="form-input" name="headquarters" value="${escHtml(data.headquarters||'')}"/>
-          </div>
-          <div class="form-field">
-            <label class="form-label">Company Size</label>
-            <select class="form-input" name="size">
-              ${['1-10','11-50','51-200','201-500','501-1000','1000+'].map(s=>`<option value="${s}" ${data.size===s?'selected':''}>${s} employees</option>`).join('')}
-            </select>
-          </div>
-          <div class="form-field" style="grid-column:1/-1">
-            <label class="form-label">Website</label>
-            <input class="form-input" name="website" type="url" placeholder="https://example.com" value="${escHtml(data.website||'')}"/>
-          </div>
-          <div class="form-field" style="grid-column:1/-1">
-            <label class="form-label">Description</label>
-            <textarea class="form-input" name="description" rows="4" style="resize:vertical">${escHtml(data.description||'')}</textarea>
-          </div>
-        </div>
-        <div style="display:flex;gap:.75rem;margin-top:1rem">
-          <button type="submit" class="btn btn-primary" id="saveCompanyBtn">💾 Save Changes</button>
-        </div>
-      </form>`;
-  } catch {
-    card.innerHTML = '<div class="empty-state"><div class="empty-state-icon">⚠️</div><p>Could not load company profile.</p></div>';
-  }
-}
-
-async function saveMyCompany(e, companyId) {
-  e.preventDefault();
-  const form = e.target;
-  const btn = document.getElementById('saveCompanyBtn');
-  btn.textContent = 'Saving…'; btn.disabled = true;
-  const payload = {
-    name:         form.name.value.trim() || null,
-    headquarters: form.headquarters.value.trim() || null,
-    size:         form.size.value || null,
-    website:      form.website.value.trim() || null,
-    description:  form.description.value.trim() || null,
-  };
-  try {
-    const r = await fetch(`${API}/companies/${companyId}`, {
-      method: 'PUT', headers: authHeaders(), body: JSON.stringify(payload),
-    });
-    if (!r.ok) throw new Error((await r.json().catch(()=>({}))).detail || 'Save failed');
-    const updated = await r.json();
-    employerCompanyData = { ...employerCompanyData, ...updated };
-    showToast('Company profile saved ✓', '✅');
-  } catch(err) {
-    showToast(err.message || 'Could not save', '❌');
-  } finally {
-    btn.textContent = '💾 Save Changes'; btn.disabled = false;
-  }
-}
 
 // ── Activities pane ───────────────────────────────────────────────────────────
 const ACTION_ICONS_MAP = {
@@ -2149,6 +2130,7 @@ const NOTIF_ICONS = { application_received:'📨', status_changed:'📋', applic
 
 // null = first run (seed IDs without firing browser alerts)
 let _seenNotifIds = null;
+let _notifPaneTimer = null;
 
 function fmtTimeAgo(iso) {
   const diff = (Date.now() - new Date(iso)) / 1000;

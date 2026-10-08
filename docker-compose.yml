@@ -66,11 +66,16 @@ services:
         env_file: .env
         environment:
             DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-taiq}:${POSTGRES_PASSWORD:-taiq_secret}@db:5432/${POSTGRES_DB:-taiq_db}
+            # taiq_jobs_feed.py reads this to reach the companies API; "localhost"
+            # inside this container would mean the container itself, not the host.
+            API_BASE: http://backend:8000/api/v1
         volumes:
             - ./backend:/app
         depends_on:
             db:
                 condition: service_healthy
+            backend:
+                condition: service_started
         networks:
             - taiq_net
 
