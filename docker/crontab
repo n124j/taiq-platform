@@ -1,7 +1,15 @@
 # TaIQ job seeder cron schedule
-# Runs every Sunday at 2:00 AM UTC
-# To change frequency, edit this file and restart the job-seeder container:
-#   docker compose restart job-seeder
+#
+# DISABLED here on purpose: scheduling is now driven externally by
+# setup_mac_scheduler.sh (macOS launchd), which calls
+#   docker compose run --rm job-seeder sh run_seed.sh
+# at 2:00 AM local time. Running it both here and from launchd would fetch
+# from Adzuna twice a day, which risks exceeding its 250-calls/day free tier.
+#
+# To re-enable this container's own daily schedule instead (e.g. for a host
+# without launchd), uncomment the line below, rebuild, and make sure nothing
+# else triggers run_seed.sh on the same schedule:
+#   docker compose build job-seeder && docker compose up -d job-seeder
 
 # ┌────────────── minute (0-59)
 # │  ┌─────────── hour (0-23)
@@ -9,4 +17,4 @@
 # │  │  │  ┌───── month (1-12)
 # │  │  │  │  ┌── day of week (0=Sun … 6=Sat)
 # │  │  │  │  │
-  0  2  *  *  0  cd /app && python seed_new_jobs.py >> /proc/1/fd/1 2>&1
+# 0  2  *  *  *  cd /app && sh run_seed.sh >> /proc/1/fd/1 2>&1

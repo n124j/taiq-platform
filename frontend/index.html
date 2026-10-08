@@ -1665,6 +1665,37 @@
             .job-detail-overlay.open .job-detail-modal {
                 transform: translateY(0);
             }
+
+            /* ─── Jobs Pagination (inline, Featured Opportunities section) ───────────── */
+            .jobs-pagination {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+            }
+            .page-btn {
+                padding: 0.4rem 0.8rem;
+                border: 1.5px solid var(--mist);
+                border-radius: var(--r1);
+                background: var(--white);
+                color: var(--ink-3);
+                font: inherit;
+                font-size: 0.82rem;
+                cursor: pointer;
+                transition: all var(--trans);
+            }
+            .page-btn:hover,
+            .page-btn.active {
+                background: var(--brand);
+                color: white;
+                border-color: var(--brand);
+            }
+            .page-btn:disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+            }
             .jd-header {
                 padding: 2rem 2.5rem 1.5rem;
                 border-bottom: 1px solid var(--paper);
@@ -2630,16 +2661,13 @@
                 <div class="jobs-grid fade-in" id="jobsGrid">
                     <!-- populated by JS -->
                 </div>
-                <div class="jobs-cta fade-in">
+                <div class="jobs-pagination" id="jobsPagination"></div>
+                <div class="jobs-cta fade-in" id="jobsCtaWrap">
                     <a
-                        href="dashboard.html"
+                        href="javascript:void(0)"
                         class="btn btn-primary btn-lg"
-                        onclick="
-                            if (currentUser) {
-                                event.preventDefault();
-                                window.location.href = 'dashboard.html#jobs';
-                            }
-                        "
+                        id="viewAllJobsBtn"
+                        onclick="viewAllJobs()"
                     >
                         View All Jobs &nbsp;→
                     </a>
@@ -3617,6 +3645,7 @@
 
             // ── State ────────────────────────────────────────────────────────────────────
             let allJobs = [];
+            let jobsGrandTotal = 0; // real DB total, from the API's `total` field
             let currentFilter = 'all';
 
             // ── Boot ─────────────────────────────────────────────────────────────────────
@@ -3724,6 +3753,7 @@
                         renderTestimonials(testimonials.value);
                     if (jobs.value?.jobs?.length) {
                         allJobs = jobs.value.jobs;
+                        jobsGrandTotal = jobs.value.total ?? allJobs.length;
                         renderJobs(allJobs.slice(0, 6));
                         injectJobPostingsLD(allJobs.slice(0, 10));
                     } else {
@@ -3811,18 +3841,8 @@
                     .join('');
             }
 
-            function renderJobs(jobs) {
-                const grid = document.getElementById('jobsGrid');
-                const count = document.getElementById('jobCount');
-                if (!jobs.length) {
-                    grid.innerHTML =
-                        '<p style="color:var(--steel);grid-column:1/-1;text-align:center;padding:2rem">No jobs found. Try a different search.</p>';
-                    count.textContent = '';
-                    return;
-                }
-                grid.innerHTML = jobs
-                    .map(
-                        (j) => `
+            function jobCardMarkup(j) {
+                return `
       <div class="job-card" onclick="openJobDetail(${j.id})" style="cursor:pointer">
         <div class="job-card-top">
           <div class="job-card-logo">${getCompanyEmoji(j.company?.name)}</div>
@@ -3858,14 +3878,100 @@
           <button class="btn-apply" onclick="event.stopPropagation();openApplyModal(${j.id})">Apply Now</button>
         </div>
       </div>
-    `,
+    `;
+            }
+
+            function renderJobs(jobs) {
+                const grid = document.getElementById('jobsGrid');
+                const count = document.getElementById('jobCount');
+                if (!jobs.length) {
+                    grid.innerHTML =
+                        '<p style="color:var(--steel);grid-column:1/-1;text-align:center;padding:2rem">No jobs found. Try a different search.</p>';
+                    count.textContent = '';
+                    return;
+                }
+                grid.innerHTML = jobs.map(jobCardMarkup).join('');
+                if (currentFilter === 'all') {
+                    count.textContent =
+                        jobsGrandTotal > jobs.length
+                            ? `Showing ${jobs.length} of ${formatNum(jobsGrandTotal)} available positions`
+                            : `${jobs.length} position${jobs.length !== 1 ? 's' : ''} available`;
+                } else {
+                    count.textContent = `${jobs.length} matching position${jobs.length !== 1 ? 's' : ''} shown`;
+                }
+            }
+
+            // ── View All Jobs (inline, paginated, same page) ────────────────────────────
+            let allJobsMode = false;
+            let allJobsPage = 1;
+
+            function viewAllJobs() {
+                allJobsMode = true;
+                document.getElementById('viewAllJobsBtn').style.display = 'none';
+                loadAllJobsPage(1);
+            }
+
+            async function loadAllJobsPage(page) {
+                allJobsPage = page;
+                const grid = document.getElementById('jobsGrid');
+                const count = document.getElementById('jobCount');
+                grid.innerHTML = Array(6)
+                    .fill(0)
+                    .map(
+                        () => `
+      <div style="background:var(--white);border-radius:1rem;padding:1.5rem;border:1px solid #e2e8f0">
+        <div style="width:48px;height:48px;border-radius:.75rem;background:#f1f5f9;margin-bottom:1rem"></div>
+        <div style="height:1rem;background:#f1f5f9;border-radius:.5rem;margin-bottom:.5rem;width:70%"></div>
+        <div style="height:.75rem;background:#f1f5f9;border-radius:.5rem;margin-bottom:1.5rem;width:50%"></div>
+        <div style="height:.75rem;background:#f1f5f9;border-radius:.5rem;width:90%"></div>
+      </div>`,
                     )
                     .join('');
-                const total = allJobs.length;
-                count.textContent =
-                    total > jobs.length
-                        ? `Showing ${jobs.length} of ${total} available positions`
-                        : `${jobs.length} position${jobs.length !== 1 ? 's' : ''} available`;
+
+                let url = `${API}/jobs?page=${page}&limit=12`;
+                if (currentFilter === 'remote') url += '&remote=true';
+                else if (currentFilter !== 'all') url += `&job_type=${currentFilter}`;
+
+                try {
+                    const r = await fetch(url);
+                    if (!r.ok) throw new Error();
+                    const data = await r.json();
+                    if (!data.jobs.length) {
+                        grid.innerHTML =
+                            '<p style="color:var(--steel);grid-column:1/-1;text-align:center;padding:2rem">No jobs found. Try a different filter.</p>';
+                        count.textContent = '';
+                        document.getElementById('jobsPagination').innerHTML = '';
+                        return;
+                    }
+                    // cache so openJobDetail() can resolve by id without a refetch
+                    data.jobs.forEach((j) => {
+                        if (!findJob(j.id)) allJobs.push(j);
+                    });
+                    grid.innerHTML = data.jobs.map(jobCardMarkup).join('');
+                    count.textContent = `${formatNum(data.total)} open position${data.total !== 1 ? 's' : ''} · page ${data.page} of ${data.pages}`;
+                    renderJobsPagination(data.page, data.pages);
+                } catch {
+                    grid.innerHTML =
+                        '<p style="color:var(--steel);grid-column:1/-1;text-align:center;padding:2rem">Could not load jobs. Please try again.</p>';
+                }
+            }
+
+            function renderJobsPagination(page, pages) {
+                const el = document.getElementById('jobsPagination');
+                if (pages <= 1) {
+                    el.innerHTML = '';
+                    return;
+                }
+                let html = `<button class="page-btn" onclick="loadAllJobsPage(${page - 1})" ${page === 1 ? 'disabled' : ''}>‹ Prev</button>`;
+                for (let i = 1; i <= pages; i++) {
+                    if (i === 1 || i === pages || Math.abs(i - page) <= 1) {
+                        html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="loadAllJobsPage(${i})">${i}</button>`;
+                    } else if (Math.abs(i - page) === 2) {
+                        html += `<span style="padding:.4rem .4rem;color:var(--steel)">…</span>`;
+                    }
+                }
+                html += `<button class="page-btn" onclick="loadAllJobsPage(${page + 1})" ${page === pages ? 'disabled' : ''}>Next ›</button>`;
+                el.innerHTML = html;
             }
 
             function renderTestimonials(list) {
@@ -3895,6 +4001,10 @@
                     .forEach((b) => b.classList.remove('active'));
                 btn.classList.add('active');
                 currentFilter = type;
+                if (allJobsMode) {
+                    loadAllJobsPage(1);
+                    return;
+                }
                 if (type === 'all') {
                     renderJobs(allJobs.slice(0, 6));
                     return;

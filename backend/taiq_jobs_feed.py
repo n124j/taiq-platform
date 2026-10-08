@@ -7,8 +7,7 @@ SOURCES
   greenhouse  \
   lever        |
   ashby        |  Company career-site feeds (free, no key).
-  workable     |  Companies come from MANUAL_COMPANIES below, merged with every
-                  company name in the TaIQ database (DB_COMPANIES_* below)
+  workable     |  List the companies you want in the COMPANIES block below
   recruitee    |
   personio    /
 
@@ -68,16 +67,7 @@ CONFIG = {
     "COPY_TO": "",
 
     "SEEN_RETENTION_DAYS": "60",  # how long to remember jobs already sent
-
-    # TaIQ's own API, used to pull company names out of the `companies` table
-    # (see DB_COMPANIES_* below). Must be reachable from wherever this script
-    # runs -- left blank so the right default is picked automatically: the
-    # Docker cron container sets API_BASE=http://backend:8000/api/v1 as an
-    # environment variable (see docker-compose.yml); running by hand on your
-    # own machine falls back to the nginx port below.
-    "API_BASE": "",
 }
-API_BASE_FALLBACK = "http://localhost:8090/api/v1"
 
 # Companies to pull from each career-site platform.
 # The name comes from the company's careers link, e.g.
@@ -88,11 +78,7 @@ API_BASE_FALLBACK = "http://localhost:8090/api/v1"
 #   acme.recruitee.com               -> "acme" under recruitee
 #   acme.jobs.personio.de            -> "acme" under personio
 # A wrong name just shows "FAILED" for that company in the log; the run continues.
-#
-# These are hand-verified real board slugs -- kept as a trusted override because
-# the TaIQ database (below) has no idea which ATS platform a company actually
-# uses, so it can only ever guess.
-MANUAL_COMPANIES = {
+COMPANIES = {
     "greenhouse": ["gitlab", "airbnb", "stripe"],
     "lever":      ["palantir"],
     "ashby":      ["ramp", "linear"],
@@ -100,30 +86,21 @@ MANUAL_COMPANIES = {
     "recruitee":  [],
     "personio":   [],
 }
-
-# Also pull every company name out of TaIQ's own `companies` database table
-# (via the public GET /api/v1/companies API) and try each one, slugified, on
-# the platform(s) listed here. The DB only stores a display name -- it does
-# not record which career-site platform (if any) a company publishes jobs on
-# -- so most of these guesses will simply fail and log "FAILED"; that's
-# expected and harmless (see the note above). Keep this to one or two
-# platforms by default, since every extra platform multiplies the number of
-# HTTP requests (and run time) by the number of DB companies.
-#
-# DB_COMPANIES_MAX caps how many DB-sourced slugs get tried per run. Without
-# a cap, this grows -- and the run gets slower -- every single day, since
-# each run's ingested jobs add new companies for the *next* run to check.
-# 400 slugs costs roughly 400 extra seconds (the 1s pause between career-site
-# requests) on top of Adzuna, which is fine for a nightly job.
-DB_COMPANIES_ENABLED = True
-DB_COMPANIES_PLATFORMS = ["greenhouse"]
-DB_COMPANIES_MAX = 400
 # =====================================================================
 
 BASE = Path(__file__).resolve().parent
 OUT_DIR = BASE / "output"
 STATE_FILE = BASE / "state" / "state.json"
-ENV_FILE = BASE / ".env"
+def _find_env_file():
+    """Use TAIQ_ENV_FILE if set; otherwise .env next to this script, then the folder above it."""
+    candidates = []
+    if os.environ.get("TAIQ_ENV_FILE"):
+        candidates.append(Path(os.environ["TAIQ_ENV_FILE"]).expanduser())
+    candidates += [BASE / ".env", BASE.parent / ".env"]
+    return next((p for p in candidates if p.exists()), None)
+
+
+ENV_FILE = _find_env_file()
 UA = "TaIQ-jobs-feed/2.0 (+https://taiq.us)"
 ATS_PLATFORMS = ["greenhouse", "lever", "ashby", "workable", "recruitee", "personio"]
 
@@ -131,7 +108,7 @@ ATS_PLATFORMS = ["greenhouse", "lever", "ashby", "workable", "recruitee", "perso
 # ---------------------------------------------------------------- settings
 def load_env_file(path):
     """Read KEY=VALUE lines from .env (tolerates Windows line endings, quotes, spaces)."""
-    if not path.exists():
+    if path is None or not path.exists():
         return
     for raw in path.read_text(encoding="utf-8-sig").splitlines():
         line = raw.strip().replace("\r", "")
@@ -424,66 +401,8 @@ FETCHERS = {"greenhouse": fetch_greenhouse, "lever": fetch_lever, "ashby": fetch
             "workable": fetch_workable, "recruitee": fetch_recruitee, "personio": fetch_personio}
 
 
-def slugify_name(name):
-    """Best-effort company-name -> URL-slug, e.g. "Acme, Inc." -> "acme-inc"."""
-    return re.sub(r"[^a-z0-9]+", "-", str(name or "").lower()).strip("-")
-
-
-def api_base():
-    return setting("API_BASE", API_BASE_FALLBACK).rstrip("/")
-
-
-def fetch_db_company_slugs(max_count):
-    """Up to max_count company names from the TaIQ `companies` table,
-    slugified and deduped, via the public GET /api/v1/companies API
-    (paginated with limit/offset, ordered alphabetically by the API).
-    NOTE: with a cap, the same alphabetical slice gets tried every run --
-    good enough since most guesses fail anyway, but it means companies past
-    the cap are never checked. Raise DB_COMPANIES_MAX for broader coverage
-    at the cost of a longer run."""
-    base = api_base()
-    limit = 200
-    offset = 0
-    seen, out = set(), []
-    while len(out) < max_count:
-        url = f"{base}/companies?limit={limit}&offset={offset}"
-        data = get_json(url)
-        if not data:
-            break
-        for c in data:
-            slug = slugify_name(c.get("name"))
-            if slug and slug not in seen:
-                seen.add(slug)
-                out.append(slug)
-                if len(out) >= max_count:
-                    break
-        if len(data) < limit:
-            break
-        offset += limit
-    return out
-
-
 def load_companies():
-    """Company slugs to try per ATS platform: MANUAL_COMPANIES (hand-verified
-    real board slugs) merged with slugified names pulled from the TaIQ
-    database (DB_COMPANIES_PLATFORMS), instead of a single hardcoded list."""
-    result = {
-        k: [s.strip() for s in MANUAL_COMPANIES.get(k, []) if isinstance(s, str) and s.strip()]
-        for k in ATS_PLATFORMS
-    }
-    if DB_COMPANIES_ENABLED:
-        try:
-            db_slugs = fetch_db_company_slugs(DB_COMPANIES_MAX)
-            print(f"  db companies: {len(db_slugs)} names from {api_base()}")
-        except Exception as e:
-            db_slugs = []
-            print(f"  db companies: FAILED to fetch from {api_base()}: {e}")
-        for platform in DB_COMPANIES_PLATFORMS:
-            if platform not in result:
-                continue
-            existing = set(result[platform])
-            result[platform] += [s for s in db_slugs if s not in existing]
-    return result
+    return {k: [s.strip() for s in COMPANIES.get(k, []) if isinstance(s, str) and s.strip()] for k in ATS_PLATFORMS}
 
 
 # ---------------------------------------------------------------- main
@@ -493,6 +412,7 @@ def main():
     args = ap.parse_args()
 
     load_env_file(ENV_FILE)
+    print(f"  settings: {ENV_FILE if ENV_FILE else 'no .env found (using SETTINGS block only)'}")
     OUT_DIR.mkdir(exist_ok=True)
     STATE_FILE.parent.mkdir(exist_ok=True)
     today = dt.date.today().isoformat()

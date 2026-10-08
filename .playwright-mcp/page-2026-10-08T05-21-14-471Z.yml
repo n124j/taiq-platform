@@ -1,0 +1,570 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e8]:
+        - link "Find Jobs" [ref=e9] [cursor=pointer]:
+          - /url: "#jobs"
+        - link "Industries" [ref=e10] [cursor=pointer]:
+          - /url: "#industries"
+        - link "For Employers" [ref=e11] [cursor=pointer]:
+          - /url: "#employers"
+        - link "Insights" [ref=e12] [cursor=pointer]:
+          - /url: "#blog"
+        - link "About" [ref=e13] [cursor=pointer]:
+          - /url: "#about"
+      - generic [ref=e14]:
+        - button "Sign In" [ref=e15] [cursor=pointer]
+        - button "Get Started" [ref=e16] [cursor=pointer]
+  - generic [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]: Now featuring AI-powered matching
+      - heading "Bridge the Gap Between Talent & Opportunity" [level=1] [ref=e23]
+      - paragraph [ref=e24]: TaIQ connects skilled professionals with leading employers across every industry. Your next great career move is one click away.
+      - generic [ref=e25]:
+        - button "Browse Jobs" [ref=e26] [cursor=pointer]
+        - button "Post a Job" [ref=e30] [cursor=pointer]
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]: 5.7K+
+          - generic [ref=e34]: Active Jobs
+        - generic [ref=e35]:
+          - generic [ref=e36]: 2.5K+
+          - generic [ref=e37]: Companies
+        - generic [ref=e38]:
+          - generic [ref=e39]: 0+
+          - generic [ref=e40]: Placed This Year
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43] [cursor=pointer]: Find a Job
+        - generic [ref=e44] [cursor=pointer]: Hire Talent
+      - generic [ref=e45]:
+        - textbox "Job title, skill, or keyword" [ref=e50]
+        - textbox "City, state, or remote" [ref=e55]
+        - combobox [ref=e60]:
+          - option "All Job Types" [selected]
+          - option "Full-Time"
+          - option "Part-Time"
+          - option "Contract"
+          - option "Temporary"
+          - option "Internship"
+        - button "Search Jobs" [ref=e61] [cursor=pointer]
+      - generic [ref=e65]:
+        - paragraph [ref=e66]: "Popular searches:"
+        - generic [ref=e67]:
+          - generic [ref=e68] [cursor=pointer]: Software Engineer
+          - generic [ref=e69] [cursor=pointer]: Data Analyst
+          - generic [ref=e70] [cursor=pointer]: Product Manager
+          - generic [ref=e71] [cursor=pointer]: Nurse
+          - generic [ref=e72] [cursor=pointer]: Remote
+  - generic [ref=e74]:
+    - generic [ref=e75]: "Trusted by leading companies:"
+    - generic [ref=e76]:
+      - generic [ref=e77]: Microsoft
+      - generic [ref=e78]: Johnson & Johnson
+      - generic [ref=e79]: Goldman Sachs
+      - generic [ref=e80]: Amazon
+      - generic [ref=e81]: Pfizer
+      - generic [ref=e82]: General Motors
+  - generic [ref=e85]:
+    - generic [ref=e86]:
+      - generic [ref=e87]: 24,000+
+      - generic [ref=e88]: Open Positions
+    - generic [ref=e89]:
+      - generic [ref=e90]: 3,800+
+      - generic [ref=e91]: Partner Companies
+    - generic [ref=e92]:
+      - generic [ref=e93]: 98%
+      - generic [ref=e94]: Satisfaction Rate
+    - generic [ref=e95]:
+      - generic [ref=e96]: 180,000+
+      - generic [ref=e97]: Successful Placements
+  - generic [ref=e99]:
+    - generic [ref=e100]:
+      - generic [ref=e101]: Browse by Industry
+      - heading "Find Opportunities in Your Field" [level=2] [ref=e102]
+      - paragraph [ref=e103]: Explore thousands of openings across every sector of the economy
+    - generic [ref=e104]:
+      - generic [ref=e105] [cursor=pointer]:
+        - generic [ref=e106]: 💻
+        - generic [ref=e107]: Technology
+        - generic [ref=e108]: 6.8K jobs
+      - generic [ref=e109] [cursor=pointer]:
+        - generic [ref=e110]: 🏥
+        - generic [ref=e111]: Healthcare
+        - generic [ref=e112]: 4.3K jobs
+      - generic [ref=e113] [cursor=pointer]:
+        - generic [ref=e114]: 💰
+        - generic [ref=e115]: Finance
+        - generic [ref=e116]: 3.1K jobs
+      - generic [ref=e117] [cursor=pointer]:
+        - generic [ref=e118]: ⚙️
+        - generic [ref=e119]: Engineering
+        - generic [ref=e120]: 2.8K jobs
+      - generic [ref=e121] [cursor=pointer]:
+        - generic [ref=e122]: 📣
+        - generic [ref=e123]: Marketing
+        - generic [ref=e124]: 1.9K jobs
+      - generic [ref=e125] [cursor=pointer]:
+        - generic [ref=e126]: 🎓
+        - generic [ref=e127]: Education
+        - generic [ref=e128]: 1.5K jobs
+      - generic [ref=e129] [cursor=pointer]:
+        - generic [ref=e130]: 🏭
+        - generic [ref=e131]: Manufacturing
+        - generic [ref=e132]: 2.2K jobs
+      - generic [ref=e133] [cursor=pointer]:
+        - generic [ref=e134]: 🛍️
+        - generic [ref=e135]: Retail
+        - generic [ref=e136]: 1.7K jobs
+      - generic [ref=e137] [cursor=pointer]:
+        - generic [ref=e138]: 🚚
+        - generic [ref=e139]: Logistics
+        - generic [ref=e140]: 1.3K jobs
+      - generic [ref=e141] [cursor=pointer]:
+        - generic [ref=e142]: ⚖️
+        - generic [ref=e143]: Legal
+        - generic [ref=e144]: 980 jobs
+  - generic [ref=e146]:
+    - generic [ref=e147]:
+      - generic [ref=e148]: Featured Opportunities
+      - heading "Jobs Handpicked For You" [level=2] [ref=e149]
+      - paragraph [ref=e150]: Thousands of new roles added daily from top employers nationwide
+    - generic [ref=e151]:
+      - button "All" [ref=e152] [cursor=pointer]
+      - button "Full-Time" [ref=e153] [cursor=pointer]
+      - button "Part-Time" [ref=e154] [cursor=pointer]
+      - button "Contract" [ref=e155] [cursor=pointer]
+      - button "Remote" [ref=e156] [cursor=pointer]
+    - generic [ref=e157]:
+      - generic [ref=e158] [cursor=pointer]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: 🏢
+          - generic [ref=e161]:
+            - generic [ref=e162]: Remote
+            - generic [ref=e163]: New
+        - generic [ref=e164]:
+          - generic [ref=e165]: Account Executive, Growth
+          - generic [ref=e166]: linear ✅
+        - generic [ref=e167]:
+          - generic [ref=e168]: Singapore
+          - generic [ref=e172]: Full-Time
+        - generic [ref=e176]:
+          - generic [ref=e177]:
+            - generic [ref=e178]: Posted 21m ago
+            - generic [ref=e179]: 0 views
+          - button "Apply Now" [ref=e180]
+      - generic [ref=e181] [cursor=pointer]:
+        - generic [ref=e182]:
+          - generic [ref=e183]: 🏢
+          - generic [ref=e184]:
+            - generic [ref=e185]: Remote
+            - generic [ref=e186]: New
+        - generic [ref=e187]:
+          - generic [ref=e188]: Manager, Enterprise Solutions Consulting
+          - generic [ref=e189]: ramp ✅
+        - generic [ref=e190]:
+          - generic [ref=e191]: New York, NY (HQ)
+          - generic [ref=e195]: Full-Time
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - generic [ref=e201]: Posted 21m ago
+            - generic [ref=e202]: 0 views
+          - button "Apply Now" [ref=e203]
+      - generic [ref=e204] [cursor=pointer]:
+        - generic [ref=e205]:
+          - generic [ref=e206]: 🏢
+          - generic [ref=e207]: New
+        - generic [ref=e209]:
+          - generic [ref=e210]: Software Engineering Intern, Android
+          - generic [ref=e211]: ramp ✅
+        - generic [ref=e212]:
+          - generic [ref=e213]: New York, NY (HQ)
+          - generic [ref=e217]: Internship
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]: Posted 21m ago
+            - generic [ref=e224]: 0 views
+          - button "Apply Now" [ref=e225]
+      - generic [ref=e226] [cursor=pointer]:
+        - generic [ref=e227]:
+          - generic [ref=e228]: 🏢
+          - generic [ref=e229]:
+            - generic [ref=e230]: Remote
+            - generic [ref=e231]: New
+        - generic [ref=e232]:
+          - generic [ref=e233]: Senior / Staff Product Designer
+          - generic [ref=e234]: linear ✅
+        - generic [ref=e235]:
+          - generic [ref=e236]: North America
+          - generic [ref=e240]: Full-Time
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]: Posted 21m ago
+            - generic [ref=e247]: 0 views
+          - button "Apply Now" [ref=e248]
+      - generic [ref=e249] [cursor=pointer]:
+        - generic [ref=e250]:
+          - generic [ref=e251]: 🏢
+          - generic [ref=e252]:
+            - generic [ref=e253]: Remote
+            - generic [ref=e254]: New
+        - generic [ref=e255]:
+          - generic [ref=e256]: Product Engineer
+          - generic [ref=e257]: linear ✅
+        - generic [ref=e258]:
+          - generic [ref=e259]: North America
+          - generic [ref=e263]: Full-Time
+        - generic [ref=e267]:
+          - generic [ref=e268]:
+            - generic [ref=e269]: Posted 21m ago
+            - generic [ref=e270]: 0 views
+          - button "Apply Now" [ref=e271]
+      - generic [ref=e272] [cursor=pointer]:
+        - generic [ref=e273]:
+          - generic [ref=e274]: 🏢
+          - generic [ref=e275]:
+            - generic [ref=e276]: Remote
+            - generic [ref=e277]: New
+        - generic [ref=e278]:
+          - generic [ref=e279]: Software Engineering Intern, iOS
+          - generic [ref=e280]: ramp ✅
+        - generic [ref=e281]:
+          - generic [ref=e282]: New York, NY (HQ)
+          - generic [ref=e286]: Internship
+        - generic [ref=e290]:
+          - generic [ref=e291]:
+            - generic [ref=e292]: Posted 21m ago
+            - generic [ref=e293]: 0 views
+          - button "Apply Now" [ref=e294]
+    - generic [ref=e295]:
+      - link "View All Jobs →" [ref=e296] [cursor=pointer]:
+        - /url: javascript:void(0)
+      - paragraph [ref=e297]: Showing 6 of 5.7K available positions
+  - generic [ref=e300]:
+    - generic [ref=e301]:
+      - generic [ref=e302]: How It Works
+      - heading "Land Your Dream Job in 4 Simple Steps" [level=2] [ref=e303]
+      - generic [ref=e304]:
+        - generic [ref=e305]:
+          - generic [ref=e306]: "1"
+          - generic [ref=e307]:
+            - heading "Create Your Profile" [level=3] [ref=e308]
+            - paragraph [ref=e309]: Build a compelling profile that showcases your skills, experience, and career goals to thousands of employers.
+        - generic [ref=e310]:
+          - generic [ref=e311]: "2"
+          - generic [ref=e312]:
+            - heading "AI-Powered Matching" [level=3] [ref=e313]
+            - paragraph [ref=e314]: Our intelligent algorithm analyzes your profile and surfaces the most relevant roles based on your skills and preferences.
+        - generic [ref=e315]:
+          - generic [ref=e316]: "3"
+          - generic [ref=e317]:
+            - heading "Apply With One Click" [level=3] [ref=e318]
+            - paragraph [ref=e319]: Apply to multiple positions instantly. Track every application's status in real-time from your dashboard.
+        - generic [ref=e320]:
+          - generic [ref=e321]: "4"
+          - generic [ref=e322]:
+            - heading "Get Hired & Thrive" [level=3] [ref=e323]
+            - paragraph [ref=e324]: Our dedicated success team supports you through offer negotiations and your first 90 days on the job.
+    - generic [ref=e325]:
+      - generic [ref=e326]:
+        - heading "🎯 Match Found!" [level=4] [ref=e327]
+        - paragraph [ref=e328]: Senior Software Engineer at Acme Corp
+        - generic [ref=e329]:
+          - generic [ref=e330]: 👤
+          - generic [ref=e331]:
+            - generic [ref=e332]: 97%
+            - generic [ref=e333]: Skills Match
+          - generic [ref=e334]:
+            - generic [ref=e335]: ● Applied
+            - generic [ref=e336]: 2 min ago
+      - generic [ref=e337]:
+        - heading "📅 Interview Scheduled" [level=4] [ref=e338]
+        - paragraph [ref=e339]: Wednesday, April 9 at 2:00 PM EST
+        - generic [ref=e340]:
+          - generic [ref=e341]: Confirmed
+          - generic [ref=e342]: Google Meet
+      - generic [ref=e343]:
+        - heading "🎉 Offer Received!" [level=4] [ref=e344]
+        - paragraph [ref=e345]: $145,000 / year + equity
+        - generic [ref=e346]: Review Offer
+  - generic [ref=e349]:
+    - generic [ref=e350]:
+      - generic [ref=e351]: Success Stories
+      - heading "What Our Community Says" [level=2] [ref=e352]
+      - paragraph [ref=e353]: Thousands of professionals and employers trust TaIQ every day
+    - generic [ref=e354]:
+      - generic [ref=e355]:
+        - generic [ref=e356]: ★★★★★
+        - paragraph [ref=e357]: "\"TaIQ connected me with my dream job in just 2 weeks. The platform is intuitive and the team is incredibly supportive throughout the entire process.\""
+        - generic [ref=e358]:
+          - generic [ref=e359]: S
+          - generic [ref=e360]:
+            - generic [ref=e361]: Sarah Johnson
+            - generic [ref=e362]: Software Engineer at Google
+      - generic [ref=e363]:
+        - generic [ref=e364]: ★★★★★
+        - paragraph [ref=e365]: "\"We have been using TaIQ to source top-tier candidates and the quality of applicants is consistently excellent. Highly recommended for any growing company.\""
+        - generic [ref=e366]:
+          - generic [ref=e367]: M
+          - generic [ref=e368]:
+            - generic [ref=e369]: Michael Chen
+            - generic [ref=e370]: HR Director at Pfizer
+      - generic [ref=e371]:
+        - generic [ref=e372]: ★★★★★
+        - paragraph [ref=e373]: "\"After months of searching on other platforms, TaIQ matched me with the perfect role that aligned with both my skills and career goals.\""
+        - generic [ref=e374]:
+          - generic [ref=e375]: P
+          - generic [ref=e376]:
+            - generic [ref=e377]: Priya Patel
+            - generic [ref=e378]: Data Scientist at Goldman Sachs
+      - generic [ref=e379]:
+        - generic [ref=e380]: ★★★★☆
+        - paragraph [ref=e381]: "\"The talent pool on TaIQ is exceptional. We filled 12 positions in a single quarter, saving us significant time and recruiting costs.\""
+        - generic [ref=e382]:
+          - generic [ref=e383]: J
+          - generic [ref=e384]:
+            - generic [ref=e385]: James Williams
+            - generic [ref=e386]: Operations Manager at Amazon
+      - generic [ref=e387]:
+        - generic [ref=e388]: ★★★★★
+        - paragraph [ref=e389]: "\"Simple, clean, and effective. I uploaded my resume, filled in my preferences, and had 5 interview invitations within a week.\""
+        - generic [ref=e390]:
+          - generic [ref=e391]: E
+          - generic [ref=e392]:
+            - generic [ref=e393]: Emma Rodriguez
+            - generic [ref=e394]: UX Designer at Apple
+      - generic [ref=e395]:
+        - generic [ref=e396]: ★★★★★
+        - paragraph [ref=e397]: "\"TaIQ has become our primary recruiting channel. The quality of candidates and the platform support are unmatched in the industry.\""
+        - generic [ref=e398]:
+          - generic [ref=e399]: D
+          - generic [ref=e400]:
+            - generic [ref=e401]: David Kim
+            - generic [ref=e402]: CFO at Tesla
+  - generic [ref=e405]:
+    - generic [ref=e406]:
+      - generic [ref=e407]:
+        - generic [ref=e408]: 🧠
+        - heading "AI-Powered Matching" [level=3] [ref=e409]
+        - paragraph [ref=e410]: Proprietary algorithms surface the best candidates for every role, reducing time-to-hire by 60%.
+      - generic [ref=e411]:
+        - generic [ref=e412]: 🌐
+        - heading "National Reach" [level=3] [ref=e413]
+        - paragraph [ref=e414]: Access talent across all 50 states and remote candidates worldwide through our platform.
+      - generic [ref=e415]:
+        - generic [ref=e416]: ✅
+        - heading "Pre-Screened Candidates" [level=3] [ref=e417]
+        - paragraph [ref=e418]: Every applicant is vetted for skills and experience before reaching your inbox.
+      - generic [ref=e419]:
+        - generic [ref=e420]: 📊
+        - heading "Analytics Dashboard" [level=3] [ref=e421]
+        - paragraph [ref=e422]: Real-time data on applications, pipeline velocity, offer acceptance, and DEI metrics.
+    - generic [ref=e423]:
+      - generic [ref=e424]: Why TaIQ
+      - heading "The Smarter Way to Hire & Get Hired" [level=2] [ref=e425]
+      - paragraph [ref=e426]: Whether you're a job seeker looking for your next move or an employer building a world-class team, TaIQ gives you the tools, network, and expert guidance to succeed.
+      - generic [ref=e427]:
+        - generic [ref=e428]:
+          - generic [ref=e429]: ✓
+          - text: Access to 180,000+ pre-screened candidates
+        - generic [ref=e430]:
+          - generic [ref=e431]: ✓
+          - text: Average time-to-hire under 14 days
+        - generic [ref=e432]:
+          - generic [ref=e433]: ✓
+          - text: Dedicated account manager support
+        - generic [ref=e434]:
+          - generic [ref=e435]: ✓
+          - text: 90-day placement guarantee
+        - generic [ref=e436]:
+          - generic [ref=e437]: ✓
+          - text: ATS integrations with major HR systems
+      - button "Start Hiring Today" [ref=e438] [cursor=pointer]
+  - generic [ref=e440]:
+    - generic [ref=e441]: Ready to Get Started?
+    - heading "Your Next Opportunity Is Waiting" [level=2] [ref=e442]
+    - paragraph [ref=e443]: Join over 2 million professionals who found their perfect role through TaIQ.
+    - generic [ref=e444]:
+      - button "Create Free Account" [ref=e445] [cursor=pointer]
+      - button "Post a Job — Free Trial" [ref=e446] [cursor=pointer]
+  - generic [ref=e448]:
+    - generic [ref=e449]:
+      - generic [ref=e450]: Career Insights
+      - heading "Resources to Elevate Your Career" [level=2] [ref=e451]
+      - paragraph [ref=e452]: Expert advice, industry trends, and hiring guides from our team of career specialists
+    - generic [ref=e453]:
+      - 'link "🏠 Workplace Remote Work in 2025: Staying Productive and Connected Hybrid and remote setups are here to stay. Here''s how top performers maintain focus, build relationships, and advance their careers from anywhere. April 1, 2026 · 6 min read Read More →" [ref=e454] [cursor=pointer]':
+        - /url: blog-post.html?slug=remote-work-productivity-2025
+        - generic [ref=e455]: 🏠
+        - generic [ref=e456]:
+          - generic [ref=e457]: Workplace
+          - 'heading "Remote Work in 2025: Staying Productive and Connected" [level=3] [ref=e458]'
+          - paragraph [ref=e459]: Hybrid and remote setups are here to stay. Here's how top performers maintain focus, build relationships, and advance their careers from anywhere.
+          - generic [ref=e460]:
+            - generic [ref=e461]: April 1, 2026 · 6 min read
+            - generic [ref=e462]: Read More →
+      - link "🤝 Hiring Guide How to Build a Winning Employer Brand in 2025 Top candidates have options. Learn how leading companies attract elite talent in a competitive market. April 1, 2026 · 8 min read Read More →" [ref=e463] [cursor=pointer]:
+        - /url: blog-post.html?slug=employer-branding-2025
+        - generic [ref=e464]: 🤝
+        - generic [ref=e465]:
+          - generic [ref=e466]: Hiring Guide
+          - heading "How to Build a Winning Employer Brand in 2025" [level=3] [ref=e467]
+          - paragraph [ref=e468]: Top candidates have options. Learn how leading companies attract elite talent in a competitive market.
+          - generic [ref=e469]:
+            - generic [ref=e470]: April 1, 2026 · 8 min read
+            - generic [ref=e471]: Read More →
+      - link "📈 Industry Trends The 15 Fastest-Growing Jobs in Tech for 2025 AI, cybersecurity, and cloud computing are reshaping the workforce. Here's where the opportunities lie. April 1, 2026 · 9 min read Read More →" [ref=e472] [cursor=pointer]:
+        - /url: blog-post.html?slug=tech-jobs-2025
+        - generic [ref=e473]: 📈
+        - generic [ref=e474]:
+          - generic [ref=e475]: Industry Trends
+          - heading "The 15 Fastest-Growing Jobs in Tech for 2025" [level=3] [ref=e476]
+          - paragraph [ref=e477]: AI, cybersecurity, and cloud computing are reshaping the workforce. Here's where the opportunities lie.
+          - generic [ref=e478]:
+            - generic [ref=e479]: April 1, 2026 · 9 min read
+            - generic [ref=e480]: Read More →
+    - link "View All Insights →" [ref=e482] [cursor=pointer]:
+      - /url: blog.html
+  - contentinfo [ref=e483]:
+    - generic [ref=e484]:
+      - generic [ref=e485]:
+        - generic [ref=e486]:
+          - heading "TaIQ" [level=3] [ref=e487]
+          - paragraph [ref=e488]: Connecting exceptional talent with extraordinary opportunities across every industry since 2018.
+          - generic [ref=e489]:
+            - generic [ref=e490] [cursor=pointer]: in
+            - generic [ref=e491] [cursor=pointer]: 𝕏
+            - generic [ref=e492] [cursor=pointer]: f
+            - generic [ref=e493] [cursor=pointer]: ig
+        - generic [ref=e494]:
+          - heading "Job Seekers" [level=4] [ref=e495]
+          - list [ref=e496]:
+            - listitem [ref=e497]:
+              - link "Browse Jobs" [ref=e498] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e499]:
+              - link "Career Resources" [ref=e500] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e501]:
+              - link "Resume Builder" [ref=e502] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e503]:
+              - link "Salary Explorer" [ref=e504] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e505]:
+              - link "Interview Prep" [ref=e506] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e507]:
+          - heading "Employers" [level=4] [ref=e508]
+          - list [ref=e509]:
+            - listitem [ref=e510]:
+              - link "Post a Job" [ref=e511] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e512]:
+              - link "Search Candidates" [ref=e513] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e514]:
+              - link "Pricing" [ref=e515] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e516]:
+              - link "ATS Integrations" [ref=e517] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e518]:
+              - link "Employer Branding" [ref=e519] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e520]:
+          - heading "Company" [level=4] [ref=e521]
+          - list [ref=e522]:
+            - listitem [ref=e523]:
+              - link "About Us" [ref=e524] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e525]:
+              - link "Careers" [ref=e526] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e527]:
+              - link "Press" [ref=e528] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e529]:
+              - link "Contact" [ref=e530] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e531]:
+              - link "Blog" [ref=e532] [cursor=pointer]:
+                - /url: blog.html
+      - generic [ref=e533]:
+        - generic [ref=e534]: © 2025 TaIQ Inc. All rights reserved.
+        - generic [ref=e535]:
+          - link "Privacy Policy" [ref=e536] [cursor=pointer]:
+            - /url: privacy-policy.html
+          - link "Terms of Service" [ref=e537] [cursor=pointer]:
+            - /url: terms-of-service.html
+          - link "Cookie Policy" [ref=e538] [cursor=pointer]:
+            - /url: cookie-policy.html
+          - link "Accessibility" [ref=e539] [cursor=pointer]:
+            - /url: accessibility.html
+  - dialog "Welcome Back":
+    - generic:
+      - generic:
+        - heading "Welcome Back" [level=2]
+        - button "Close": ×
+      - generic:
+        - tab "Sign In"
+        - tab "Create Account"
+      - generic:
+        - generic:
+          - generic: Email Address
+          - textbox "Email Address":
+            - /placeholder: you@example.com
+        - generic:
+          - generic: Password
+          - textbox "Password":
+            - /placeholder: ••••••••
+        - button "Sign In"
+        - generic:
+          - text: Don't have an account?
+          - link "Sign up free":
+            - /url: "#"
+  - generic [ref=e540]:
+    - generic [ref=e541]: ✅
+    - generic [ref=e542]: Done!
+  - dialog
+  - dialog:
+    - generic:
+      - generic:
+        - generic: Apply for this Position
+        - generic: ×
+      - generic:
+        - generic:
+          - generic: Full Name *
+          - textbox "Your full name"
+        - generic:
+          - generic: Email Address *
+          - textbox "you@example.com"
+        - generic:
+          - generic: Phone Number
+          - textbox "(555) 123-4567"
+        - generic:
+          - generic: LinkedIn Profile
+          - textbox "https://linkedin.com/in/yourprofile"
+        - generic: Resume / CV *
+        - generic:
+          - generic: Cover Letter
+          - textbox "Tell the hiring team why you're a great fit for this role..."
+        - generic:
+          - generic: How did you hear about this position?
+          - combobox:
+            - option "Select one" [selected]
+            - option "TaIQ Platform"
+            - option "LinkedIn"
+            - option "Employee Referral"
+            - option "Job Board"
+            - option "Friend / Family"
+            - option "Recruiter"
+            - option "Other"
+          - generic:
+            - textbox "Referrer's email address"
+        - generic:
+          - checkbox "I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes."
+          - generic: I confirm that the information provided is accurate and I consent to my data being processed for recruitment purposes.
+        - button "Submit Application"

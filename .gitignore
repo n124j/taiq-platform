@@ -33,3 +33,11 @@ postgres_data/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Misc
+graphify-out/
+
+# scheduler data
+output/
+feed/
+backend/feed/
