@@ -4,7 +4,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 from app.core.database import get_db
 from app.models.models import Job, Company, UserRole, Application, ApplicationStatus, User
-from app.schemas.schemas import JobCreate, JobOut, EmployerApplicationOut, CompanyOut, CompanyUpdate
+from app.schemas.schemas import JobCreate, JobOut, EmployerApplicationOut, CompanyOut
 from app.api.applications import get_current_user
 from app.core.activity import track
 from app.core.notify import notify
@@ -81,52 +81,6 @@ async def post_job(
     )
     return JobOut.model_validate(loaded_job)
 
-
-@router.get("/company")
-async def my_company(
-    current_user: User = Depends(require_employer),
-    db: AsyncSession = Depends(get_db),
-):
-    company = await db.scalar(select(Company).where(Company.owner_id == current_user.id))
-    if not company:
-        return {"exists": False}
-    return {
-        "exists": True,
-        "id": company.id,
-        "name": company.name,
-        "description": company.description,
-        "website": company.website,
-        "size": company.size,
-        "headquarters": company.headquarters,
-        "industry_id": company.industry_id,
-        "is_verified": company.is_verified,
-    }
-
-
-@router.put("/company", response_model=CompanyOut)
-async def update_my_company(
-    payload: CompanyUpdate,
-    current_user: User = Depends(require_employer),
-    db: AsyncSession = Depends(get_db),
-):
-    company = await db.scalar(select(Company).where(Company.owner_id == current_user.id))
-    if not company:
-        raise HTTPException(status_code=404, detail="No company profile found. Post a job first to auto-create one.")
-    if payload.name is not None:
-        company.name = payload.name
-    if payload.description is not None:
-        company.description = payload.description
-    if payload.website is not None:
-        company.website = payload.website
-    if payload.size is not None:
-        company.size = payload.size
-    if payload.headquarters is not None:
-        company.headquarters = payload.headquarters
-    if payload.industry_id is not None:
-        company.industry_id = payload.industry_id
-    await db.flush()
-    await track(db, current_user, "company_updated", f"Updated company profile: {company.name}")
-    return CompanyOut.model_validate(company)
 
 
 @router.get("", response_model=list[JobOut])

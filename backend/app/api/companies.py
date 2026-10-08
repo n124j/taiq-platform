@@ -15,11 +15,12 @@ router = APIRouter(prefix="/companies", tags=["companies"])
 async def list_companies(
     q: str | None = Query(None),
     limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
     db: AsyncSession = Depends(get_db),
 ):
-    stmt = select(Company).order_by(Company.name).limit(limit)
+    stmt = select(Company).order_by(Company.name).offset(offset).limit(limit)
     if q:
-        stmt = select(Company).where(Company.name.ilike(f"%{q}%")).order_by(Company.name).limit(limit)
+        stmt = select(Company).where(Company.name.ilike(f"%{q}%")).order_by(Company.name).offset(offset).limit(limit)
     companies = (await db.scalars(stmt)).all()
     return [CompanyBrief.model_validate(c) for c in companies]
 
