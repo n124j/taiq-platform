@@ -41,6 +41,89 @@ async def send_email(to: str, subject: str, html_body: str) -> bool:
         return False
 
 
+def reset_password_email_html(full_name: str, reset_url: str) -> str:
+    return f"""
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body style="margin:0;padding:0;background:#f4f6fb;font-family:'Helvetica Neue',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fb;padding:40px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(10,15,30,.1);">
+
+        <!-- Header -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#050c1f 0%,#0d2654 60%,#1a3a7a 100%);padding:40px 48px;text-align:center;">
+            <div style="display:inline-flex;align-items:center;gap:10px;">
+              <div style="width:40px;height:40px;background:#0052cc;border-radius:10px;display:inline-block;line-height:40px;text-align:center;">
+                <span style="color:white;font-size:18px;font-weight:bold;">T</span>
+              </div>
+              <span style="color:white;font-size:24px;font-weight:800;font-family:Georgia,serif;">TaIQ</span>
+            </div>
+            <p style="color:rgba(255,255,255,.6);font-size:13px;margin:8px 0 0;">Your career intelligence platform</p>
+          </td>
+        </tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="padding:48px;">
+            <h1 style="font-size:26px;font-weight:700;color:#0a0f1e;margin:0 0 8px;">
+              Reset your password
+            </h1>
+            <p style="color:#384060;font-size:15px;line-height:1.6;margin:0 0 24px;">
+              Hi {full_name}, we received a request to reset the password for your TaIQ account.
+              Click the button below to choose a new one.
+            </p>
+
+            <!-- Reset button -->
+            <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
+              <tr>
+                <td style="background:#0052cc;border-radius:50px;padding:14px 32px;">
+                  <a href="{reset_url}" style="color:white;font-size:15px;font-weight:600;text-decoration:none;display:inline-block;">
+                    🔒 Reset My Password
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <p style="color:#6b7899;font-size:13px;line-height:1.6;margin:0 0 8px;">
+              If the button doesn't work, copy and paste this link into your browser:
+            </p>
+            <p style="margin:0 0 32px;">
+              <a href="{reset_url}" style="color:#0052cc;font-size:13px;word-break:break-all;">{reset_url}</a>
+            </p>
+
+            <p style="color:#6b7899;font-size:12px;margin:0;">
+              This link expires in <strong>1 hour</strong>.
+              If you didn't request a password reset, you can safely ignore this email — your password will not be changed.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background:#f4f6fb;border-top:1px solid #c8d0e4;padding:24px 48px;text-align:center;">
+            <p style="color:#6b7899;font-size:12px;margin:0 0 8px;">
+              © 2025 TaIQ Inc. · 123 Innovation Drive, Philadelphia, PA 19103
+            </p>
+            <p style="margin:0;">
+              <a href="{settings.FRONTEND_URL}/privacy-policy.html" style="color:#0052cc;font-size:12px;text-decoration:none;margin:0 8px;">Privacy Policy</a>
+              <a href="{settings.FRONTEND_URL}/terms-of-service.html" style="color:#0052cc;font-size:12px;text-decoration:none;margin:0 8px;">Terms of Service</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+"""
+
+
 def welcome_email_html(full_name: str, role: str, verify_url: str) -> str:
     role_label = "Job Seeker" if role == "candidate" else "Employer / Recruiter"
     return f"""

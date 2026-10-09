@@ -16,6 +16,10 @@
             href="https://taiq.us/blog-post.html"
             id="pageCanonical"
         />
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="TaIQ" />
         <meta
@@ -112,28 +116,14 @@
                 gap: 1rem;
             }
             .nav-logo {
-                font-family: 'Syne', sans-serif;
-                font-weight: 800;
-                font-size: 1.2rem;
-                color: white;
                 display: flex;
                 align-items: center;
-                gap: 0.5rem;
                 text-decoration: none;
             }
-            .logo-mark {
-                width: 30px;
-                height: 30px;
-                background: var(--brand);
-                border-radius: 8px;
-                display: grid;
-                place-items: center;
-                flex-shrink: 0;
-            }
-            .logo-mark svg {
-                width: 16px;
-                height: 16px;
-                fill: white;
+            .nav-logo img {
+                height: 28px;
+                width: auto;
+                display: block;
             }
             .nav-links {
                 display: flex;
@@ -610,14 +600,7 @@
         <nav class="nav">
             <div class="nav-inner">
                 <a href="index.html" class="nav-logo">
-                    <div class="logo-mark">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                            />
-                        </svg>
-                    </div>
-                    TaIQ
+                    <img src="images/logo-light.png" alt="TaIQ" />
                 </a>
                 <div class="nav-links">
                     <a href="index.html#jobs">Find Jobs</a>

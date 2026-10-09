@@ -43,6 +43,13 @@
         <meta name="author" content="TaIQ" />
         <link rel="canonical" href="https://taiq.us/" />
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
+
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="TaIQ" />
@@ -246,24 +253,11 @@
             .nav-logo {
                 display: flex;
                 align-items: center;
-                gap: 0.6rem;
-                font-family: 'Syne', sans-serif;
-                font-weight: 800;
-                font-size: 1.35rem;
-                color: var(--ink);
             }
-            .nav-logo-mark {
-                width: 36px;
-                height: 36px;
-                background: var(--brand);
-                border-radius: 10px;
-                display: grid;
-                place-items: center;
-            }
-            .nav-logo-mark svg {
-                width: 20px;
-                height: 20px;
-                fill: white;
+            .nav-logo img {
+                height: 34px;
+                width: auto;
+                display: block;
             }
             .nav-links {
                 display: flex;
@@ -1537,6 +1531,38 @@
                 font-size: 0.82rem;
                 margin: 1rem 0;
             }
+            .oauth-row {
+                display: flex;
+                gap: 0.6rem;
+                margin-bottom: 1rem;
+            }
+            .oauth-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.75rem;
+                border: 1.5px solid var(--mist);
+                border-radius: var(--r2);
+                background: white;
+                color: var(--ink);
+                font: inherit;
+                font-size: 0.85rem;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all var(--trans);
+            }
+            .oauth-btn:hover {
+                border-color: var(--steel);
+                background: var(--paper);
+            }
+            .oauth-btn svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+            }
             .form-footer {
                 text-align: center;
                 font-size: 0.83rem;
@@ -2298,14 +2324,7 @@
         <nav class="nav" id="navbar">
             <div class="container nav-inner">
                 <a href="/" class="nav-logo">
-                    <div class="nav-logo-mark">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                            />
-                        </svg>
-                    </div>
-                    TaIQ
+                    <img src="images/logo.png" alt="TaIQ" />
                 </a>
                 <div class="nav-links">
                     <a href="#jobs">Find Jobs</a>
@@ -3140,6 +3159,19 @@
                     </div>
                 </div>
 
+                <!-- OAuth Sign-in -->
+                <div class="oauth-row">
+                    <a class="oauth-btn" href="/api/v1/auth/google/login">
+                        <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.21-2.45H12v4.64h6.46c-.28 1.45-1.13 2.68-2.41 3.5v2.9h3.9c2.28-2.1 3.57-5.2 3.57-8.59z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.95-2.9l-3.9-2.9c-1.08.73-2.46 1.17-4.05 1.17-3.12 0-5.76-2.1-6.7-4.93H1.24v3.01C3.23 21.3 7.26 24 12 24z"/><path fill="#FBBC05" d="M5.3 14.44A7.17 7.17 0 0 1 4.9 12c0-.85.15-1.67.4-2.44V6.55H1.24A11.93 11.93 0 0 0 0 12c0 1.93.46 3.75 1.24 5.45l4.06-3.01z"/><path fill="#EA4335" d="M12 4.75c1.76 0 3.34.6 4.58 1.78l3.46-3.46C17.94 1.2 15.24 0 12 0 7.26 0 3.23 2.7 1.24 6.55l4.06 3.01C6.24 6.85 8.88 4.75 12 4.75z"/></svg>
+                        Google
+                    </a>
+                    <a class="oauth-btn" href="/api/v1/auth/github/login">
+                        <svg viewBox="0 0 24 24" fill="#181717"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.94.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.52-3.87-1.52-.53-1.33-1.28-1.68-1.28-1.68-1.05-.7.08-.69.08-.69 1.16.08 1.77 1.18 1.77 1.18 1.03 1.75 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.53-2.55-.29-5.24-1.27-5.24-5.67 0-1.25.45-2.28 1.18-3.08-.12-.3-.52-1.5.11-3.12 0 0 .96-.3 3.14 1.18a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.18 3.14-1.18.63 1.62.23 2.82.11 3.12.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.26 5.66.42.36.78 1.07.78 2.17v3.22c0 .3.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+                <div class="form-divider">or use your email</div>
+
                 <!-- Login Form -->
                 <div id="loginForm">
                     <div class="form-group">
@@ -3165,6 +3197,19 @@
                             id="loginPassword"
                             autocomplete="current-password"
                         />
+                        <div
+                            style="text-align: right; margin-top: 0.4rem"
+                        >
+                            <a
+                                href="forgot-password.html"
+                                style="
+                                    font-size: 0.8rem;
+                                    color: var(--brand);
+                                    font-weight: 500;
+                                "
+                                >Forgot password?</a
+                            >
+                        </div>
                     </div>
                     <button
                         class="form-submit"
@@ -4921,6 +4966,31 @@
                 setTimeout(() => openModal('login'), 300);
                 // Clean the URL
                 window.history.replaceState({}, '', window.location.pathname);
+            }
+
+            // Finish an OAuth (Google/GitHub) sign-in redirected back from the backend
+            async function completeOAuthLogin(token) {
+                try {
+                    const r = await fetch(`${API}/me`, {
+                        headers: {Authorization: `Bearer ${token}`},
+                    });
+                    if (!r.ok) throw new Error('profile fetch failed');
+                    const data = await r.json();
+                    saveSession({access_token: token, user: data.user});
+                    updateNavForUser();
+                    redirectToDashboard(data.user);
+                } catch {
+                    showToast('OAuth sign-in failed. Please try again.', '❌');
+                }
+            }
+
+            const oauthToken = urlParams.get('oauth_token');
+            if (oauthToken) {
+                window.history.replaceState({}, '', window.location.pathname);
+                completeOAuthLogin(oauthToken);
+            } else if (urlParams.get('oauth_error') === '1') {
+                window.history.replaceState({}, '', window.location.pathname);
+                showToast('OAuth sign-in failed. Please try again or use email.', '❌');
             }
 
             // ── Tab helper ────────────────────────────────────────────────────────────────

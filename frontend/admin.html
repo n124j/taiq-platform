@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="robots" content="noindex, nofollow"/>
   <title>Admin Panel — TaIQ</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png"/>
+  <link rel="shortcut icon" href="images/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -16,9 +20,8 @@
     /* Nav */
     .nav{background:var(--ink);padding:.9rem 0;position:sticky;top:0;z-index:100}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;width:min(1300px,100% - 3rem);margin:auto;gap:1rem}
-    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:white;display:flex;align-items:center;gap:.5rem}
-    .logo-mark{width:30px;height:30px;background:var(--brand);border-radius:8px;display:grid;place-items:center;flex-shrink:0}
-    .logo-mark svg{width:16px;height:16px;fill:white}
+    .nav-logo{display:flex;align-items:center;gap:.5rem}
+    .nav-logo img{height:28px;width:auto;display:block}
     .nav-badge{background:rgba(255,92,53,.2);border:1px solid rgba(255,92,53,.4);color:#fca5a5;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
     .nav-right{display:flex;align-items:center;gap:.75rem}
     .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.2rem;border-radius:var(--r-full);font-size:.85rem;font-weight:600;transition:all var(--trans);cursor:pointer;border:none;font-family:inherit}
@@ -223,8 +226,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-logo">
-      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      TaIQ
+      <img src="images/logo-light.png" alt="TaIQ"/>
       <span class="nav-badge">Admin</span>
     </div>
     <div class="nav-right">
