@@ -68,6 +68,7 @@ class JobCreate(BaseModel):
     description: str
     requirements: str | None = None
     benefits: str | None = None
+    apply_url: str | None = None
     location: str
     remote: bool = False
     job_type: JobType = JobType.full_time
@@ -83,6 +84,9 @@ class JobOut(BaseModel):
     title: str
     slug: str
     description: str
+    requirements: str | None
+    benefits: str | None
+    apply_url: str | None
     location: str
     remote: bool
     job_type: JobType

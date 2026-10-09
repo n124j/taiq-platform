@@ -243,11 +243,12 @@ async def admin_delete_company(
     await db.delete(company)
 
 
-# ── Admin: all jobs (platform-wide) ──────────────────────────────────────────
+# ── Admin: all jobs (platform-wide, optionally filtered by company) ─────────
 @router.get("/jobs", response_model=list[JobOut])
 async def admin_all_jobs(
     page: int = Query(1, ge=1),
     limit: int = Query(20, ge=1, le=100),
+    company_id: int | None = Query(None),
     current_user: User = Depends(require_admin),
     db: AsyncSession = Depends(get_db),
 ):
@@ -255,9 +256,10 @@ async def admin_all_jobs(
         select(Job)
         .options(selectinload(Job.company))
         .order_by(Job.created_at.desc())
-        .offset((page - 1) * limit)
-        .limit(limit)
     )
+    if company_id is not None:
+        stmt = stmt.where(Job.company_id == company_id)
+    stmt = stmt.offset((page - 1) * limit).limit(limit)
     jobs = (await db.scalars(stmt)).all()
     return [JobOut.model_validate(j) for j in jobs]
 

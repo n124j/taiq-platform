@@ -895,7 +895,7 @@ async function loadDashboardCandidate() {
       el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📭</div><p>No applications yet.</p><button class="btn btn-primary" onclick="showPane('jobs')">Browse Jobs</button></div>`;
     } else {
       el.innerHTML = `<div class="app-list">${apps.slice(0,4).map(a=>`
-        <div class="app-item">
+        <div class="app-item${a.job?.id ? ' clickable' : ''}"${a.job?.id ? ` onclick="openJobDrawer(${a.job.id})"` : ''}>
           <div class="app-logo">🏢</div>
           <div class="app-info">
             <div class="app-title">${a.job?.title||'Unknown Job'}</div>
@@ -1019,7 +1019,7 @@ async function loadRecommendedJobs() {
     const matchColor = pct => pct >= 80 ? '#22c55e' : pct >= 60 ? '#f59e0b' : '#6b7899';
 
     container.innerHTML = top.map(({ job: j, matchPct }) => `
-      <div class="job-rec" onclick="showPane('jobs')" title="${(j.skills_required||[]).join(', ') || 'No specific skills required'}">
+      <div class="job-rec" onclick="openJobDrawer(${j.id})" style="cursor:pointer" title="${(j.skills_required||[]).join(', ') || 'No specific skills required'}">
         <div class="job-rec-logo">🏢</div>
         <div class="job-rec-info">
           <div class="job-rec-title">${j.title}</div>
@@ -1413,7 +1413,7 @@ function searchJobsPane() { loadJobsPane(1); }
 function jobCardHTML(j) {
   const salary = fmtSalary(j.salary_min, j.salary_max);
   const skills = (j.skills_required||[]).slice(0,3);
-  return `<div class="job-card">
+  return `<div class="job-card" onclick="openJobDrawer(${j.id})" style="cursor:pointer">
     <div class="job-card-header">
       <div class="job-card-logo">🏢</div>
       <div>
@@ -1429,8 +1429,8 @@ function jobCardHTML(j) {
       ${skills.map(s=>`<span class="job-tag">${s}</span>`).join('')}
     </div>
     <div class="job-card-actions">
-      <button class="btn btn-primary" onclick="openApplyModal(${j.id},'${j.title.replace(/'/g,"\\'")}')">Apply Now</button>
-      <button class="btn btn-outline" onclick="toggleSaveJob(${j.id},this)">♡ Save</button>
+      <button class="btn btn-primary" onclick="event.stopPropagation();openApplyModal(${j.id},'${j.title.replace(/'/g,"\\'")}')">Apply Now</button>
+      <button class="btn btn-outline" onclick="event.stopPropagation();toggleSaveJob(${j.id},this)">♡ Save</button>
     </div>
   </div>`;
 }
@@ -1748,7 +1748,7 @@ async function loadSavedPane() {
       const j=s.job; if(!j) return '';
       const salary=fmtSalary(j.salary_min,j.salary_max);
       const skills=(j.skills_required||[]).slice(0,3);
-      return `<div class="job-card">
+      return `<div class="job-card" onclick="openJobDrawer(${j.id})" style="cursor:pointer">
         <div class="job-card-header">
           <div class="job-card-logo">🏢</div>
           <div><div class="job-card-title">${j.title}</div><div class="job-card-company">${j.company?.name||'Company'} · ${j.location}</div></div>
@@ -1760,8 +1760,8 @@ async function loadSavedPane() {
           ${skills.map(sk=>`<span class="job-tag">${sk}</span>`).join('')}
         </div>
         <div class="job-card-actions">
-          <button class="btn btn-primary" onclick="openApplyModal(${j.id},'${j.title.replace(/'/g,"\\'")}')">Apply Now</button>
-          <button class="btn btn-outline" style="color:#ef4444;border-color:#ef4444" onclick="unsaveAndRemove(${j.id},this)">✕ Unsave</button>
+          <button class="btn btn-primary" onclick="event.stopPropagation();openApplyModal(${j.id},'${j.title.replace(/'/g,"\\'")}')">Apply Now</button>
+          <button class="btn btn-outline" style="color:#ef4444;border-color:#ef4444" onclick="event.stopPropagation();unsaveAndRemove(${j.id},this)">✕ Unsave</button>
         </div>
       </div>`;
     }).join('')}</div>`;
@@ -2321,9 +2321,14 @@ async function openJobDrawer(jobId) {
       ? `<div class="jd-drawer-section"><div class="jd-drawer-section-title">Skills</div><div style="display:flex;flex-wrap:wrap;gap:.4rem">${(j.skills_required||[]).map(s=>`<span style="background:var(--paper);border:1px solid var(--mist);border-radius:20px;padding:.2rem .65rem;font-size:.78rem;color:var(--ink)">${escHtml(s)}</span>`).join('')}</div></div>`
       : '';
 
+    const readMore = j.apply_url && /[…]$|\.\.\.$/.test((j.description || '').trim())
+      ? `<p style="color:var(--steel);font-size:.85rem;margin-top:-.5rem"><em>This is a preview from the original listing.</em> <a href="#" onclick="event.preventDefault();window.open('${j.apply_url.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}','_blank','noopener')" style="font-weight:600">Read the full posting →</a></p>`
+      : '';
+
     document.getElementById('jdDrawerBody').innerHTML = `
       <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem">${chips}</div>
       ${section('Description', j.description)}
+      ${readMore}
       ${section('Requirements', j.requirements)}
       ${section('Benefits', j.benefits)}
       ${skillTags}`;
@@ -2334,6 +2339,10 @@ async function openJobDrawer(jobId) {
     let actions = '';
     if (isEmp || isAdmin) {
       actions += `<button class="btn btn-ghost" style="color:var(--danger);border-color:var(--danger)" onclick="deleteJobFromDrawer(${j.id},'${escHtml(j.title)}')">🗑 Delete</button>`;
+    } else if (j.apply_url) {
+      actions += `<button class="btn btn-primary" onclick="window.open('${j.apply_url.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}','_blank','noopener')">Apply Now ↗</button>`;
+    } else {
+      actions += `<button class="btn btn-primary" onclick="openApplyModal(${j.id},'${escHtml(j.title).replace(/'/g,"\\'")}')">Apply Now</button>`;
     }
     actions += `<button class="btn btn-ghost" onclick="closeJobDrawer()">Close</button>`;
     document.getElementById('jdDrawerActions').innerHTML = actions;

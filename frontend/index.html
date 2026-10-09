@@ -3875,7 +3875,7 @@
             <div class="job-posted">Posted ${timeAgo(j.created_at)}</div>
             <div class="job-count">${j.views} views</div>
           </div>
-          <button class="btn-apply" onclick="event.stopPropagation();openApplyModal(${j.id})">Apply Now</button>
+          <button class="btn-apply" onclick="event.stopPropagation();${j.apply_url ? `window.open('${j.apply_url.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}','_blank','noopener')` : `openApplyModal(${j.id})`}">Apply Now${j.apply_url ? ' ↗' : ''}</button>
         </div>
       </div>
     `;
@@ -4479,6 +4479,9 @@
         <div class="jd-section">
           <div class="jd-section-title">📋 About This Role</div>
           ${formatDescription(j.description)}
+          ${j.apply_url && /[…]$|\.\.\.$/.test((j.description || '').trim())
+              ? `<p style="color:var(--steel);font-size:.88rem;margin-top:.5rem"><em>This is a preview from the original listing.</em> <a href="#" onclick="event.preventDefault();window.open('${j.apply_url.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}','_blank','noopener')" style="color:var(--brand);font-weight:600">Read the full posting →</a></p>`
+              : ''}
         </div>
         ${
             j.requirements
@@ -4518,7 +4521,9 @@
         <div style="display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
           <button class="jd-apply-btn" style="background:var(--paper);color:var(--ink)" onclick="shareJob(${j.id})">Share</button>
           ${currentUser ? `<button class="jd-apply-btn jd-save-btn" id="jdSaveBtn-${j.id}" onclick="toggleSaveJobDetail(${j.id},this)" style="background:var(--paper);color:var(--ink)">🔖 Save Job</button>` : ''}
-          <button class="jd-apply-btn" onclick="openApplyModal(${j.id})">Apply Now</button>
+          ${j.apply_url
+              ? `<button class="jd-apply-btn" onclick="window.open('${j.apply_url.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}','_blank','noopener')">Apply Now ↗</button>`
+              : `<button class="jd-apply-btn" onclick="openApplyModal(${j.id})">Apply Now</button>`}
         </div>
       </div>
     `;
