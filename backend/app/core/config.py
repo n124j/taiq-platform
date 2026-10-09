@@ -26,6 +26,15 @@ class Settings(BaseSettings):
     # Frontend base URL (used in email links)
     FRONTEND_URL: str = "http://localhost:8090"
 
+    # Backend's own public base URL — used to build the OAuth callback redirect URI
+    BACKEND_URL: str = "http://localhost:8000"
+
+    # OAuth (Google / GitHub login)
+    GOOGLE_CLIENT_ID: str = ""
+    GOOGLE_CLIENT_SECRET: str = ""
+    GITHUB_CLIENT_ID: str = ""
+    GITHUB_CLIENT_SECRET: str = ""
+
     # Anthropic API key — used for AI-powered job file parsing
     ANTHROPIC_API_KEY: str = ""
 

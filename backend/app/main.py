@@ -23,6 +23,15 @@ async def lifespan(app: FastAPI):
             await conn.execute(text(
                 "ALTER TABLE jobs ADD COLUMN IF NOT EXISTS apply_url VARCHAR(2048)"
             ))
+            await conn.execute(text(
+                "ALTER TABLE users ADD COLUMN IF NOT EXISTS oauth_provider VARCHAR(50)"
+            ))
+            await conn.execute(text(
+                "ALTER TABLE users ADD COLUMN IF NOT EXISTS oauth_id VARCHAR(255)"
+            ))
+            await conn.execute(text(
+                "ALTER TABLE users ALTER COLUMN hashed_password DROP NOT NULL"
+            ))
     except IntegrityError:
         # Another worker already created tables concurrently — safe to ignore
         pass

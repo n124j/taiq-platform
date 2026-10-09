@@ -4,6 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Verify Email — TaIQ</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png"/>
+  <link rel="shortcut icon" href="images/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -52,15 +56,10 @@
     @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
     .logo {
-      display:inline-flex; align-items:center; gap:.6rem;
-      font-family:'Syne',sans-serif; font-weight:800; font-size:1.4rem;
-      color:white; margin-bottom:2rem; text-decoration:none;
+      display:inline-flex; align-items:center;
+      margin-bottom:2rem; text-decoration:none;
     }
-    .logo-mark {
-      width:38px; height:38px; background:var(--brand);
-      border-radius:10px; display:grid; place-items:center;
-    }
-    .logo-mark svg { width:20px; height:20px; fill:white; }
+    .logo img { height:36px; width:auto; display:block; }
 
     .icon-wrap {
       width:90px; height:90px; border-radius:50%;
@@ -119,10 +118,7 @@
 
 <div class="card">
   <a href="index.html" class="logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-    </div>
-    TaIQ
+    <img src="images/logo-light.png" alt="TaIQ"/>
   </a>
 
   <div class="icon-wrap spinning" id="icon">⏳</div>

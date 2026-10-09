@@ -28,6 +28,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cookie Policy — TaIQ</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png"/>
+  <link rel="shortcut icon" href="images/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -40,9 +44,8 @@
 
     .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--mist);padding:.9rem 0}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;width:min(1200px,100% - 3rem);margin:auto}
-    .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:var(--ink);display:flex;align-items:center;gap:.5rem}
-    .logo-mark{width:32px;height:32px;background:var(--brand);border-radius:8px;display:grid;place-items:center}
-    .logo-mark svg{width:18px;height:18px;fill:white}
+    .nav-logo{display:flex;align-items:center}
+    .nav-logo img{height:30px;width:auto;display:block}
     .nav-back{font-size:.85rem;font-weight:500;color:var(--steel);transition:color var(--trans)}
     .nav-back:hover{color:var(--brand);text-decoration:none}
 
@@ -155,8 +158,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      TaIQ
+      <img src="images/logo.png" alt="TaIQ"/>
     </a>
     <a href="index.html" class="nav-back">← Back to Home</a>
   </div>
