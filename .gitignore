@@ -41,3 +41,4 @@ graphify-out/
 output/
 feed/
 backend/feed/
+backend/state/
