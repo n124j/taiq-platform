@@ -276,6 +276,7 @@ async def insert_jobs(raw_jobs, industry_map, db):
             title=title,
             slug=job_slug,
             description=r["description"] or f"Exciting opportunity at {company_name}.",
+            apply_url=r.get("apply_url"),
             location=r["location"] or "Remote",
             remote=r["remote"],
             job_type=r["job_type"],

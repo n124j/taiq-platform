@@ -60,8 +60,6 @@ def normalize(raw):
         remote = "remote" in location.lower()
     description = html_to_text(raw.get("description") or "")
     apply_url = raw.get("apply_url")
-    if apply_url:
-        description = f"{description}\n\nApply here: {apply_url}".strip()
 
     return {
         "title": title,
@@ -69,6 +67,7 @@ def normalize(raw):
         "location": location or "Remote",
         "remote": bool(remote),
         "description": description,
+        "apply_url": apply_url,
         "job_type": map_job_type(raw.get("employment_type") or ""),
         "industry": guess_industry(combo),
         "skills": [category] if category else [],
@@ -128,6 +127,7 @@ async def insert_jobs(raw_jobs, industry_map, db):
             title=title,
             slug=job_slug,
             description=norm["description"] or f"Exciting opportunity at {company_name}.",
+            apply_url=norm["apply_url"],
             location=norm["location"],
             remote=norm["remote"],
             job_type=norm["job_type"],

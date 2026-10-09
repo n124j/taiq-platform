@@ -118,6 +118,7 @@ class Job(Base):
     description = Column(Text)
     requirements = Column(Text)
     benefits = Column(Text)
+    apply_url = Column(String(2048))
     location = Column(String(255))
     remote = Column(Boolean, default=False)
     job_type = Column(Enum(JobType), default=JobType.full_time)

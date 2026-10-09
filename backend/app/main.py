@@ -6,6 +6,7 @@ from app.core.config import settings
 from app.core.database import engine, Base
 from app.api import auth, jobs, public, applications, companies, employer, profile, admin, parse_job, notifications
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy import text
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -17,6 +18,11 @@ async def lifespan(app: FastAPI):
     try:
         async with engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all, checkfirst=True)
+            # create_all only creates missing tables, not missing columns on
+            # tables that already existed before this column was added.
+            await conn.execute(text(
+                "ALTER TABLE jobs ADD COLUMN IF NOT EXISTS apply_url VARCHAR(2048)"
+            ))
     except IntegrityError:
         # Another worker already created tables concurrently — safe to ignore
         pass

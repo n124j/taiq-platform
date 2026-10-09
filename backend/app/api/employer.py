@@ -65,6 +65,7 @@ async def post_job(
         description=payload.description,
         requirements=payload.requirements,
         benefits=payload.benefits,
+        apply_url=payload.apply_url,
         location=payload.location,
         remote=payload.remote,
         job_type=payload.job_type,
